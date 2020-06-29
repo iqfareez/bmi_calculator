@@ -62,22 +62,74 @@ class _AppBodyState extends State<AppBody> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
-                Chip(
-                  label: Text('data'),
-                ),
-                Chip(
-                  label: Text('data'),
-                ),
-                Chip(
-                  label: Text('data'),
+                Text(
+                  'Your BMI is HEALTHY',
+                  style: TextStyle(fontSize: 30),
                 )
               ],
             ),
           ),
-          Expanded(
-            //TOMAKE: BUILD LAYOUT UTK TEXT INPUT FIELD
-            child: Container(
-              color: Colors.black,
+          Container(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                SizedBox(
+                  height: 14.0,
+                ),
+                Row(
+                  children: <Widget>[
+                    Expanded(
+                      child: Container(
+                        margin: const EdgeInsets.all(10.0),
+                        child: TextField(
+                          decoration: InputDecoration(
+                              border: OutlineInputBorder(),
+                              labelText: "Weight (kg)",
+                              hintText: "Eg: 57.2",
+                              alignLabelWithHint: false,
+                              filled: true),
+                          keyboardType: TextInputType.number,
+                          textInputAction: TextInputAction.done,
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: Container(
+                        margin: const EdgeInsets.all(10.0),
+                        child: TextField(
+                          decoration: InputDecoration(
+                              border: OutlineInputBorder(),
+                              labelText: "Height (cm)",
+                              hintText: "Eg: 159.2",
+                              alignLabelWithHint: false,
+                              filled: true),
+                          keyboardType: TextInputType.number,
+                          textInputAction: TextInputAction.done,
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+                Row(
+                  children: <Widget>[
+                    Expanded(
+                      child: Container(
+                        margin: const EdgeInsets.all(10.0),
+                        child: TextField(
+                          decoration: InputDecoration(
+                              border: OutlineInputBorder(),
+                              labelText: "Height (cm)",
+                              hintText: "Eg: 159.2",
+                              alignLabelWithHint: false,
+                              filled: true),
+                          keyboardType: TextInputType.number,
+                          textInputAction: TextInputAction.done,
+                        ),
+                      ),
+                    )
+                  ],
+                )
+              ],
             ),
           )
         ],
