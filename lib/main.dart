@@ -181,9 +181,6 @@ class _AppBodyState extends State<AppBody> {
                                 TextSpan(
                                   text: 'Severely Obese\n',
                                 ),
-                                TextSpan(
-                                  text: 'Wikipedia',
-                                ),
                               ]),
                         ),
                       ),
