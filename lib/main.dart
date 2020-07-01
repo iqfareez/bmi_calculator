@@ -74,7 +74,7 @@ class _AppBodyState extends State<AppBody> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
                 SizedBox(
-                  height: 14.0,
+                  height: 23.0,
                 ),
                 Row(
                   children: <Widget>[
