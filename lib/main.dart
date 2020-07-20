@@ -1,4 +1,4 @@
-import 'package:bmicalculator/sizeconfig.dart';
+import 'package:bmicalculator/Utils/sizeconfig.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -100,7 +100,7 @@ class _AppBodyState extends State<AppBody> {
                           decoration: InputDecoration(
                               border: OutlineInputBorder(),
                               labelText: "Height (cm)",
-                              hintText: "Eg: 159.2",
+                              hintText: "Eg: 159",
                               alignLabelWithHint: false,
                               filled: true),
                           keyboardType: TextInputType.number,
