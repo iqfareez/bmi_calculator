@@ -73,12 +73,13 @@ class _AppBodyState extends State<AppBody> {
           ),
           Container(
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 SizedBox(
                   height: 23.0,
                 ),
                 Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
                     Expanded(
                       child: Container(
@@ -109,6 +110,38 @@ class _AppBodyState extends State<AppBody> {
                           keyboardType: TextInputType.number,
                           textInputAction: TextInputAction.done,
                         ),
+                      ),
+                    )
+                  ],
+                ),
+                SizedBox(height: 20.0),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: RaisedButton(
+                        child: Text(
+                          "CALCULATE",
+                          style: TextStyle(color: Colors.white),
+                        ),
+                        color: Colors.green,
+                        onPressed: () {
+                          print('Button calculate pressed');
+                        },
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: RaisedButton(
+                        child: Text(
+                          "RESET",
+                          style: TextStyle(color: Colors.white),
+                        ),
+                        color: Colors.red,
+                        onPressed: () {
+                          print('Button reset pressed');
+                        },
                       ),
                     )
                   ],

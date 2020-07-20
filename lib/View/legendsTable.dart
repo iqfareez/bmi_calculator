@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+//Responsible for showing table in main.dart
+// ignore: todo
+//TODO-LATER: Change to table widget
+
 class LegendsTable extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
