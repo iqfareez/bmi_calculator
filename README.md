@@ -4,6 +4,10 @@ BMI Calculator Lite is built with Flutter
 
 Calculate your BMI
 
+## Changelogs
+
+Wondering what is changed with every new releases?? I log them in [changelogs](https://telegra.ph/Changelogs---BMI-Calculator-Lite-07-21).
+
 ## Download app (coming soon)
 
 1. Google Play Store
