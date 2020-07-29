@@ -21,6 +21,8 @@ class MyApp extends StatelessWidget {
   }
 }
 
+//why do i need two material app?
+
 class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
