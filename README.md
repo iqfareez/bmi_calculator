@@ -8,6 +8,10 @@ Calculate your BMI
 
 Wondering what is changed with every new releases?? I log them in [changelogs](https://telegra.ph/Changelogs---BMI-Calculator-Lite-07-21).
 
+## Web demo
+
+https://bmi-flutter-2e776.web.app/
+
 ## Download app (coming soon)
 
 1. Google Play Store
