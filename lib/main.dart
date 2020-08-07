@@ -21,20 +21,16 @@ class MyApp extends StatelessWidget {
   }
 }
 
-//why do i need two material app?
-
 class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('BMI Calculator'),
-          elevation: 0.0,
-          backgroundColor: Colors.deepOrange.shade600,
-        ),
-        body: AppBody(),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('BMI Calculator'),
+        elevation: 0.0,
+        backgroundColor: Colors.deepOrange.shade600,
       ),
+      body: AppBody(),
     );
   }
 }
@@ -160,4 +156,5 @@ class _AppBodyState extends State<AppBody> {
 }
 
 //TODO: letak share icon kat toolbar
-//TODO: Letak calculate/reset button
+//TODO: Letak funtion calculate/reset
+//TODO: ltak unit (cth: kg) kat hujung textbox
