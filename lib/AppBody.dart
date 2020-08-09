@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 import 'Utils/sizeconfig.dart';
@@ -8,8 +10,14 @@ class AppBody extends StatefulWidget {
   _AppBodyState createState() => _AppBodyState();
 }
 
+double calculateBMI(double weight, double height) {
+  return (weight / pow(height, 2));
+}
+
 class _AppBodyState extends State<AppBody> {
-  final weightTextController = TextEditingController();
+  final weightController = TextEditingController();
+  final heightController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
@@ -51,11 +59,14 @@ class _AppBodyState extends State<AppBody> {
                       child: Container(
                         margin: const EdgeInsets.all(10.0),
                         child: TextField(
-                          controller: weightTextController,
+                          controller: weightController,
+                          maxLength: 4,
                           decoration: InputDecoration(
                               border: OutlineInputBorder(),
-                              labelText: "Weight (kg)",
+                              labelText: "Weight ",
+                              counter: Offstage(),
                               hintText: "Eg: 57.2",
+                              suffixText: "kg",
                               alignLabelWithHint: false,
                               filled: true),
                           keyboardType: TextInputType.number,
@@ -67,10 +78,14 @@ class _AppBodyState extends State<AppBody> {
                       child: Container(
                         margin: const EdgeInsets.all(10.0),
                         child: TextField(
+                          controller: heightController,
+                          maxLength: 4,
                           decoration: InputDecoration(
+                              counter: Offstage(),
                               border: OutlineInputBorder(),
-                              labelText: "Height (cm)",
-                              hintText: "Eg: 159",
+                              labelText: "Height",
+                              hintText: "Eg: 1.7",
+                              suffixText: "m",
                               alignLabelWithHint: false,
                               filled: true),
                           keyboardType: TextInputType.number,
@@ -94,6 +109,8 @@ class _AppBodyState extends State<AppBody> {
                         color: Colors.green,
                         onPressed: () {
                           print('Button calculate pressed');
+                          print('height is ' + heightController.text);
+                          print('weight is ' + weightController.text);
                         },
                       ),
                     ),
@@ -124,5 +141,4 @@ class _AppBodyState extends State<AppBody> {
 }
 
 //TODO: letak share icon kat toolbar
-//TODO: Letak funtion calculate/reset
-//TODO: ltak unit (cth: kg) kat hujung textbox
+//TODO: Letak funtion reset
