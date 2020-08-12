@@ -69,7 +69,7 @@ class _AppBodyState extends State<AppBody> {
                   children: <Widget>[
                     Text(
                       '$calculatedBmi',
-                      style: GoogleFonts.montserrat(fontSize: 40),
+                      style: GoogleFonts.montserrat(fontSize: 37),
                     )
                   ],
                 ),
@@ -171,6 +171,9 @@ class _AppBodyState extends State<AppBody> {
                           FocusManager.instance.primaryFocus.unfocus();
                           weightController.clear();
                           heightController.clear();
+                          setState(() {
+                            calculatedBmi = 'Enter new data';
+                          });
                           Fluttertoast.showToast(
                             msg: "Cleared",
                             toastLength: Toast.LENGTH_SHORT,
