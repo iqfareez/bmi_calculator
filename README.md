@@ -17,7 +17,10 @@ https://bmi-flutter-2e776.web.app/
 1. Google Play Store
 2. APK
 
-_By downloading or using the app, these [Terms & Conditions](https://telegra.ph/TC---BMI-Calculator-Lite-07-21) and [Privacy Policy](https://telegra.ph/Privacy-Policy---BMI-Calculator-Lite-07-21) will automatically apply to you_
+## Legalese
+
+- [Terms & Conditions](https://telegra.ph/TC---BMI-Calculator-Lite-07-21)
+- [Privacy Policy](https://telegra.ph/Privacy-Policy---BMI-Calculator-Lite-07-21)
 
 ## Repository link
 

@@ -1,7 +1,10 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
+import 'package:flutter/services.dart';
 
+import 'Utils/RegExInputFormatter.dart';
 import 'Utils/sizeconfig.dart';
 import 'View/legendsTable.dart';
 
@@ -10,13 +13,31 @@ class AppBody extends StatefulWidget {
   _AppBodyState createState() => _AppBodyState();
 }
 
-double calculateBMI(double weight, double height) {
-  return (weight / pow(height, 2));
+double calculateBMI({String weight, String height}) {
+  double _weight;
+  double _height;
+
+  try {
+    _weight = double.parse(weight);
+    _height = double.parse(height);
+  } on FormatException {
+    print('Invalid format');
+  }
+
+  var result = (_weight / pow(_height, 2));
+  print('result is $result');
+  return result;
 }
 
 class _AppBodyState extends State<AppBody> {
+  final _amountValidator = RegExInputFormatter.withRegex(
+      '^\$|^(0|([1-9][0-9]{0,}))(\\.[0-9]{0,})?\$');
   final weightController = TextEditingController();
   final heightController = TextEditingController();
+  final snackBar = SnackBar(
+    content: Text('Cannot calculate\nOne or more field is empty'),
+    duration: Duration(seconds: 2),
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +48,7 @@ class _AppBodyState extends State<AppBody> {
         children: <Widget>[
           Container(
             width: SizeConfig.screenWidth,
-            height: SizeConfig.screenHeight / 4,
+            height: SizeConfig.screenHeight / 3,
             decoration: BoxDecoration(
               color: Colors.deepOrange.shade600,
               borderRadius: BorderRadius.only(
@@ -35,13 +56,35 @@ class _AppBodyState extends State<AppBody> {
                   bottomRight: Radius.circular(40)),
             ),
             padding: EdgeInsets.all(10.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                Text(
-                  'Your BMI is HEALTHY',
-                  style: TextStyle(fontSize: 30),
-                )
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    IconButton(
+                      icon: Icon(Icons.share),
+                      onPressed: () {
+                        print('Pressed');
+                      },
+                    ),
+                    IconButton(
+                      icon: Icon(Icons.info),
+                      onPressed: () {
+                        print('Prssed info');
+                      },
+                    )
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    Text(
+                      '28',
+                      style: TextStyle(fontSize: 30),
+                    )
+                  ],
+                ),
               ],
             ),
           ),
@@ -70,6 +113,7 @@ class _AppBodyState extends State<AppBody> {
                               alignLabelWithHint: false,
                               filled: true),
                           keyboardType: TextInputType.number,
+                          inputFormatters: [_amountValidator],
                           textInputAction: TextInputAction.done,
                         ),
                       ),
@@ -89,6 +133,7 @@ class _AppBodyState extends State<AppBody> {
                               alignLabelWithHint: false,
                               filled: true),
                           keyboardType: TextInputType.number,
+                          inputFormatters: [_amountValidator],
                           textInputAction: TextInputAction.done,
                         ),
                       ),
@@ -111,6 +156,14 @@ class _AppBodyState extends State<AppBody> {
                           print('Button calculate pressed');
                           print('height is ' + heightController.text);
                           print('weight is ' + weightController.text);
+                          if (weightController.text == "" ||
+                              heightController.text == "") {
+                            Scaffold.of(context).showSnackBar(snackBar);
+                          } else {
+                            calculateBMI(
+                                height: heightController.text,
+                                weight: weightController.text);
+                          }
                         },
                       ),
                     ),
@@ -140,5 +193,6 @@ class _AppBodyState extends State<AppBody> {
   }
 }
 
-//TODO: letak share icon kat toolbar
+//TODO: letak info icon kat toolbar
+//TODO: Share icon as fab
 //TODO: Letak funtion reset

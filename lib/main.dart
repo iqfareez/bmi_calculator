@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'BMI Calculator',
+      title: 'BMI Calculator ',
       theme: ThemeData(
         primarySwatch: Colors.deepOrange,
         visualDensity: VisualDensity.adaptivePlatformDensity,
@@ -25,11 +25,6 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('BMI Calculator'),
-        elevation: 0.0,
-        backgroundColor: Colors.deepOrange.shade600,
-      ),
       body: AppBody(),
     );
   }
