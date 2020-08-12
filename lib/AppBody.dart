@@ -3,6 +3,8 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'Utils/RegExInputFormatter.dart';
 import 'Utils/sizeconfig.dart';
@@ -30,12 +32,15 @@ double calculateBMI({String weight, String height}) {
 }
 
 class _AppBodyState extends State<AppBody> {
+  String calculatedBmi = 'Fill in your data';
   final _amountValidator = RegExInputFormatter.withRegex(
       '^\$|^(0|([1-9][0-9]{0,}))(\\.[0-9]{0,})?\$');
   final weightController = TextEditingController();
   final heightController = TextEditingController();
   final snackBar = SnackBar(
     content: Text('Cannot calculate\nOne or more field is empty'),
+    elevation: 20.0,
+    behavior: SnackBarBehavior.floating,
     duration: Duration(seconds: 2),
   );
 
@@ -48,7 +53,7 @@ class _AppBodyState extends State<AppBody> {
         children: <Widget>[
           Container(
             width: SizeConfig.screenWidth,
-            height: SizeConfig.screenHeight / 3,
+            height: SizeConfig.screenHeight / 4,
             decoration: BoxDecoration(
               color: Colors.deepOrange.shade600,
               borderRadius: BorderRadius.only(
@@ -57,31 +62,14 @@ class _AppBodyState extends State<AppBody> {
             ),
             padding: EdgeInsets.all(10.0),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    IconButton(
-                      icon: Icon(Icons.share),
-                      onPressed: () {
-                        print('Pressed');
-                      },
-                    ),
-                    IconButton(
-                      icon: Icon(Icons.info),
-                      onPressed: () {
-                        print('Prssed info');
-                      },
-                    )
-                  ],
-                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
                     Text(
-                      '28',
-                      style: TextStyle(fontSize: 30),
+                      '$calculatedBmi',
+                      style: GoogleFonts.montserrat(fontSize: 40),
                     )
                   ],
                 ),
@@ -160,9 +148,13 @@ class _AppBodyState extends State<AppBody> {
                               heightController.text == "") {
                             Scaffold.of(context).showSnackBar(snackBar);
                           } else {
-                            calculateBMI(
-                                height: heightController.text,
-                                weight: weightController.text);
+                            setState(() {
+                              String answer = calculateBMI(
+                                      height: heightController.text,
+                                      weight: weightController.text)
+                                  .toStringAsFixed(1);
+                              calculatedBmi = answer;
+                            });
                           }
                         },
                       ),
@@ -176,13 +168,21 @@ class _AppBodyState extends State<AppBody> {
                         ),
                         color: Colors.red,
                         onPressed: () {
-                          print('Button reset pressed');
+                          FocusManager.instance.primaryFocus.unfocus();
+                          weightController.clear();
+                          heightController.clear();
+                          Fluttertoast.showToast(
+                            msg: "Cleared",
+                            toastLength: Toast.LENGTH_SHORT,
+                            backgroundColor: Colors.orange,
+                            textColor: Colors.white,
+                          );
                         },
                       ),
                     )
                   ],
                 ),
-                SizedBox(height: 25.0),
+                SizedBox(height: 30),
                 LegendsTable(),
               ],
             ),
