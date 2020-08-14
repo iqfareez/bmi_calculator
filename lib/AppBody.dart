@@ -116,7 +116,7 @@ class _AppBodyState extends State<AppBody> {
                               counter: Offstage(),
                               border: OutlineInputBorder(),
                               labelText: "Height",
-                              hintText: "Eg: 1.7",
+                              hintText: "Eg: 1.73",
                               suffixText: "m",
                               alignLabelWithHint: false,
                               filled: true),
@@ -141,6 +141,7 @@ class _AppBodyState extends State<AppBody> {
                         ),
                         color: Colors.green,
                         onPressed: () {
+                          FocusManager.instance.primaryFocus.unfocus();
                           print('Button calculate pressed');
                           print('height is ' + heightController.text);
                           print('weight is ' + weightController.text);
