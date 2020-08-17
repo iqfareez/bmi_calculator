@@ -10,6 +10,8 @@ import 'Utils/RegExInputFormatter.dart';
 import 'Utils/sizeconfig.dart';
 import 'View/legendsTable.dart';
 
+String bmiResult;
+
 class AppBody extends StatefulWidget {
   @override
   _AppBodyState createState() => _AppBodyState();
@@ -28,6 +30,19 @@ double calculateBMI({String weight, String height}) {
 
   var result = (_weight / pow(_height, 2));
   print('result is $result');
+
+  if (result < 7.5) {
+    Fluttertoast.showToast(
+        msg: 'Your BMI is too low. Make sure your entered data is correct',
+        backgroundColor: Colors.yellow[900],
+        toastLength: Toast.LENGTH_LONG);
+  } else if (result > 41) {
+    Fluttertoast.showToast(
+      msg: 'Your BMI is too high. Make sure your entered data is correct',
+      backgroundColor: Colors.yellow[900],
+    );
+  }
+
   return result;
 }
 
@@ -85,6 +100,7 @@ class _AppBodyState extends State<AppBody> {
                 ),
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Expanded(
                       child: Container(
@@ -158,6 +174,7 @@ class _AppBodyState extends State<AppBody> {
                                       weight: weightController.text)
                                   .toStringAsFixed(1);
                               calculatedBmi = answer;
+                              bmiResult = answer;
                             });
                           }
                         },

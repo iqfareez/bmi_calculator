@@ -10,7 +10,7 @@
 
     <application
         android:name="io.flutter.app.FlutterApplication"
-        android:label="bmicalculator"
+        android:label="BMI Calculator Lite"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
