@@ -102,7 +102,9 @@ class _AppBodyState extends State<AppBody> {
                               filled: true),
                           keyboardType: TextInputType.number,
                           inputFormatters: [_amountValidator],
-                          textInputAction: TextInputAction.done,
+                          textInputAction: TextInputAction.next,
+                          onSubmitted: (_) =>
+                              FocusScope.of(context).nextFocus(),
                         ),
                       ),
                     ),
@@ -123,6 +125,7 @@ class _AppBodyState extends State<AppBody> {
                           keyboardType: TextInputType.number,
                           inputFormatters: [_amountValidator],
                           textInputAction: TextInputAction.done,
+                          onSubmitted: (_) => FocusScope.of(context).unfocus(),
                         ),
                       ),
                     )
