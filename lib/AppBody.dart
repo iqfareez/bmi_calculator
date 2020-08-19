@@ -216,7 +216,3 @@ class _AppBodyState extends State<AppBody> {
     );
   }
 }
-
-//TODO: letak info icon kat toolbar
-//TODO: Share icon as fab
-//TODO: Letak funtion reset

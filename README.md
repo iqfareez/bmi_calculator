@@ -14,7 +14,7 @@ https://bmi-flutter-2e776.web.app/
 
 ## Download app (coming soon)
 
-1. Google Play Store
+1. [Google Play Store](https://play.google.com/store/apps/details?id=live.iqfareez.bmicalculator)
 2. [APK](https://github.com/fareezMaple/bmi_calculator-Flutter/releases)
 
 ## Legalese
