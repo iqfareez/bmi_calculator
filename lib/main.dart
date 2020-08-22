@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:syncfusion_flutter_core/core.dart';
 import 'package:share/share.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import 'AppBody.dart';
 
 void main() {
+  SyncfusionLicense.registerLicense(
+      "NT8mJyc2IWhia31hfWN9Z2doYmF8YGJ8ampqanNiYmlmamlmanMDHmg6Ij4yP2ATPCYnPzw8OH0wPD4=");
   runApp(MyApp());
 }
 
