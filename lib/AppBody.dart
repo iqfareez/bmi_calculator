@@ -10,7 +10,7 @@ import 'Utils/RegExInputFormatter.dart';
 import 'Utils/sizeconfig.dart';
 import 'View/legendsTable.dart';
 
-String bmiResult;
+String bmiResult = '0';
 
 class AppBody extends StatefulWidget {
   @override
@@ -76,25 +76,25 @@ class _AppBodyState extends State<AppBody> {
                   bottomRight: Radius.circular(40)),
             ),
             padding: EdgeInsets.all(10.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: <Widget>[
-                    Expanded(
-                      flex: 1,
-                      child: BmiGauge(),
+            child: Row(
+              children: <Widget>[
+                Expanded(
+                  child: SizedBox(
+                    child: BmiGauge(
+                      bmiValue: double.tryParse(bmiResult),
                     ),
-                    Expanded(
-                      flex: 2,
-                      child: Text(
-                        '$calculatedBmi',
-                        style: GoogleFonts.montserrat(fontSize: 37),
-                      ),
-                    )
-                  ],
+                  ),
                 ),
+                Expanded(
+                  child: FittedBox(
+                    fit: BoxFit.fitWidth,
+                    child: Text(
+                      //change to status
+                      '$calculatedBmi',
+                      style: GoogleFonts.montserrat(),
+                    ),
+                  ),
+                )
               ],
             ),
           ),

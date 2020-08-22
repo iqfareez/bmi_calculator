@@ -3,7 +3,7 @@ import 'package:syncfusion_flutter_gauges/gauges.dart';
 
 class BmiGauge extends StatefulWidget {
   final double bmiValue;
-  BmiGauge({this.bmiValue});
+  BmiGauge({this.bmiValue = 0});
   @override
   _BmiGaugeState createState() => _BmiGaugeState();
 }
@@ -74,8 +74,8 @@ class _BmiGaugeState extends State<BmiGauge> {
                   angle: 90,
                   positionFactor: 0.8,
                   widget: Container(
-                    child: const Text(
-                      '  22.5  ',
+                    child: Text(
+                      '${widget.bmiValue}',
                       style:
                           TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                     ),
@@ -83,7 +83,7 @@ class _BmiGaugeState extends State<BmiGauge> {
             ],
             pointers: <GaugePointer>[
               NeedlePointer(
-                value: 22.5,
+                value: widget.bmiValue,
                 needleLength: 0.6,
                 lengthUnit: GaugeSizeUnit.factor,
                 needleStartWidth: 1,
