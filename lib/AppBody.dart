@@ -5,7 +5,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
-
+import 'BMIGauge.dart';
 import 'Utils/RegExInputFormatter.dart';
 import 'Utils/sizeconfig.dart';
 import 'View/legendsTable.dart';
@@ -82,9 +82,16 @@ class _AppBodyState extends State<AppBody> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
-                    Text(
-                      '$calculatedBmi',
-                      style: GoogleFonts.montserrat(fontSize: 37),
+                    Expanded(
+                      flex: 1,
+                      child: BmiGauge(),
+                    ),
+                    Expanded(
+                      flex: 2,
+                      child: Text(
+                        '$calculatedBmi',
+                        style: GoogleFonts.montserrat(fontSize: 37),
+                      ),
                     )
                   ],
                 ),
