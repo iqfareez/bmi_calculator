@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'BMI Calculator',
       theme: ThemeData(
-        primarySwatch: Colors.deepOrange,
+        primarySwatch: Colors.pink,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: MyHomePage(),
@@ -35,8 +35,10 @@ class MyHomePage extends StatelessWidget {
         FocusScope.of(context).unfocus();
       },
       child: Scaffold(
+        resizeToAvoidBottomInset: true,
         appBar: AppBar(
-          backgroundColor: Colors.deepOrange.shade600,
+          title: Text('  BMI Calculator'),
+          backgroundColor: Theme.of(context).primaryColor,
           elevation: 0.0,
           actions: [
             IconButton(

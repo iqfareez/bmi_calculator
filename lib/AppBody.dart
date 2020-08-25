@@ -63,162 +63,166 @@ class _AppBodyState extends State<AppBody> {
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     return SafeArea(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Container(
-            width: SizeConfig.screenWidth,
-            height: SizeConfig.screenHeight / 4,
-            decoration: BoxDecoration(
-              color: Colors.deepOrange.shade600,
-              borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(40),
-                  bottomRight: Radius.circular(40)),
-            ),
-            padding: EdgeInsets.all(10.0),
-            child: Row(
-              children: <Widget>[
-                Expanded(
-                  child: SizedBox(
-                    child: BmiGauge(
-                      bmiValue: double.tryParse(bmiResult),
-                    ),
-                  ),
-                ),
-                Expanded(
-                  child: FittedBox(
-                    fit: BoxFit.fitWidth,
-                    child: Text(
-                      //change to status
-                      '$calculatedBmi',
-                      style: GoogleFonts.montserrat(),
-                    ),
-                  ),
-                )
-              ],
-            ),
-          ),
-          Container(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                SizedBox(
-                  height: 23.0,
-                ),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Expanded(
-                      child: Container(
-                        margin: const EdgeInsets.all(10.0),
-                        child: TextField(
-                          controller: weightController,
-                          maxLength: 4,
-                          decoration: InputDecoration(
-                              border: OutlineInputBorder(),
-                              labelText: "Weight ",
-                              counter: Offstage(),
-                              hintText: "Eg: 57.2",
-                              suffixText: "kg",
-                              alignLabelWithHint: false,
-                              filled: true),
-                          keyboardType: TextInputType.number,
-                          inputFormatters: [_amountValidator],
-                          textInputAction: TextInputAction.next,
-                          onSubmitted: (_) =>
-                              FocusScope.of(context).nextFocus(),
-                        ),
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Container(
+              width: SizeConfig.screenWidth,
+              height: SizeConfig.screenHeight / 4,
+              decoration: BoxDecoration(
+                color: Theme.of(context).primaryColor,
+                borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(40),
+                    bottomRight: Radius.circular(40)),
+              ),
+              padding: EdgeInsets.all(10.0),
+              child: Row(
+                children: <Widget>[
+                  Expanded(
+                    child: SizedBox(
+                      child: BmiGauge(
+                        bmiValue: double.tryParse(bmiResult),
                       ),
                     ),
-                    Expanded(
-                      child: Container(
-                        margin: const EdgeInsets.all(10.0),
-                        child: TextField(
-                          controller: heightController,
-                          maxLength: 4,
-                          decoration: InputDecoration(
-                              counter: Offstage(),
-                              border: OutlineInputBorder(),
-                              labelText: "Height",
-                              hintText: "Eg: 1.73",
-                              suffixText: "m",
-                              alignLabelWithHint: false,
-                              filled: true),
-                          keyboardType: TextInputType.number,
-                          inputFormatters: [_amountValidator],
-                          textInputAction: TextInputAction.done,
-                          onSubmitted: (_) => FocusScope.of(context).unfocus(),
+                  ),
+                  Expanded(
+                    child: FittedBox(
+                      fit: BoxFit.fitWidth,
+                      child: Text(
+                        //change to status
+                        '$calculatedBmi',
+                        style: GoogleFonts.montserrat(),
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            ),
+            Container(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  SizedBox(
+                    height: 23.0,
+                  ),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Expanded(
+                        child: Container(
+                          margin: const EdgeInsets.all(10.0),
+                          child: TextField(
+                            controller: weightController,
+                            maxLength: 4,
+                            decoration: InputDecoration(
+                                border: OutlineInputBorder(),
+                                labelText: "Weight ",
+                                counter: Offstage(),
+                                hintText: "Eg: 57.2",
+                                suffixText: "kg",
+                                alignLabelWithHint: false,
+                                filled: true),
+                            keyboardType: TextInputType.number,
+                            inputFormatters: [_amountValidator],
+                            textInputAction: TextInputAction.next,
+                            onSubmitted: (_) =>
+                                FocusScope.of(context).nextFocus(),
+                          ),
                         ),
                       ),
-                    )
-                  ],
-                ),
-                SizedBox(height: 20.0),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: RaisedButton(
-                        child: Text(
-                          "CALCULATE",
-                          style: TextStyle(color: Colors.white),
+                      Expanded(
+                        child: Container(
+                          margin: const EdgeInsets.all(10.0),
+                          child: TextField(
+                            controller: heightController,
+                            maxLength: 4,
+                            decoration: InputDecoration(
+                                counter: Offstage(),
+                                border: OutlineInputBorder(),
+                                labelText: "Height",
+                                hintText: "Eg: 1.73",
+                                suffixText: "m",
+                                alignLabelWithHint: false,
+                                filled: true),
+                            keyboardType: TextInputType.number,
+                            inputFormatters: [_amountValidator],
+                            textInputAction: TextInputAction.done,
+                            onSubmitted: (_) =>
+                                FocusScope.of(context).unfocus(),
+                          ),
                         ),
-                        color: Colors.green,
-                        onPressed: () {
-                          FocusManager.instance.primaryFocus.unfocus();
-                          print('Button calculate pressed');
-                          print('height is ' + heightController.text);
-                          print('weight is ' + weightController.text);
-                          if (weightController.text == "" ||
-                              heightController.text == "") {
-                            Scaffold.of(context).showSnackBar(snackBar);
-                          } else {
+                      )
+                    ],
+                  ),
+                  SizedBox(height: 20.0),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: RaisedButton(
+                          child: Text(
+                            "CALCULATE",
+                            style: TextStyle(color: Colors.white),
+                          ),
+                          color: Colors.green,
+                          onPressed: () {
+                            FocusManager.instance.primaryFocus.unfocus();
+                            print('Button calculate pressed');
+                            print('height is ' + heightController.text);
+                            print('weight is ' + weightController.text);
+                            if (weightController.text == "" ||
+                                heightController.text == "") {
+                              Scaffold.of(context).showSnackBar(snackBar);
+                            } else {
+                              setState(() {
+                                String answer = calculateBMI(
+                                        height: heightController.text,
+                                        weight: weightController.text)
+                                    .toStringAsFixed(1);
+                                calculatedBmi = answer;
+                                bmiResult = answer;
+                              });
+                            }
+                          },
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: RaisedButton(
+                          child: Text(
+                            "RESET",
+                            style: TextStyle(color: Colors.white),
+                          ),
+                          color: Colors.red,
+                          onPressed: () {
+                            FocusManager.instance.primaryFocus.unfocus();
+                            weightController.clear();
+                            heightController.clear();
                             setState(() {
-                              String answer = calculateBMI(
-                                      height: heightController.text,
-                                      weight: weightController.text)
-                                  .toStringAsFixed(1);
-                              calculatedBmi = answer;
-                              bmiResult = answer;
+                              calculatedBmi = 'Enter new data';
+                              bmiResult = "0.0";
                             });
-                          }
-                        },
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: RaisedButton(
-                        child: Text(
-                          "RESET",
-                          style: TextStyle(color: Colors.white),
+                            Fluttertoast.showToast(
+                              msg: "Cleared",
+                              toastLength: Toast.LENGTH_SHORT,
+                              backgroundColor: Colors.orange,
+                              textColor: Colors.white,
+                            );
+                          },
                         ),
-                        color: Colors.red,
-                        onPressed: () {
-                          FocusManager.instance.primaryFocus.unfocus();
-                          weightController.clear();
-                          heightController.clear();
-                          setState(() {
-                            calculatedBmi = 'Enter new data';
-                          });
-                          Fluttertoast.showToast(
-                            msg: "Cleared",
-                            toastLength: Toast.LENGTH_SHORT,
-                            backgroundColor: Colors.orange,
-                            textColor: Colors.white,
-                          );
-                        },
-                      ),
-                    )
-                  ],
-                ),
-                SizedBox(height: 30),
-                LegendsTable(),
-              ],
-            ),
-          )
-        ],
+                      )
+                    ],
+                  ),
+                  SizedBox(height: 30),
+                  LegendsTable(),
+                ],
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

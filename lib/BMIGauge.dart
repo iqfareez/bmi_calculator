@@ -18,66 +18,75 @@ class _BmiGaugeState extends State<BmiGauge> {
         RadialAxis(
             startAngle: 130,
             endAngle: 50,
-            minimum: -50,
-            maximum: 150,
-            interval: 20,
+            minimum: 10,
+            maximum: 45,
+            interval: 6,
             minorTicksPerInterval: 9,
             showAxisLine: false,
-            radiusFactor: 0.9,
-            labelOffset: 8,
+            radiusFactor: 0.93,
+            labelOffset: 2,
             ranges: <GaugeRange>[
               GaugeRange(
-                  startValue: -50,
-                  endValue: 0,
+                  startValue: 10,
+                  endValue: 16,
                   startWidth: 0.265,
                   sizeUnit: GaugeSizeUnit.factor,
                   endWidth: 0.265,
                   color: const Color.fromRGBO(34, 144, 199, 0.75)),
               GaugeRange(
-                  startValue: 0,
-                  endValue: 10,
+                  startValue: 16,
+                  endValue: 18.5,
                   startWidth: 0.265,
                   sizeUnit: GaugeSizeUnit.factor,
                   endWidth: 0.265,
                   color: const Color.fromRGBO(34, 195, 199, 0.75)),
               GaugeRange(
-                  startValue: 10,
-                  endValue: 30,
+                  startValue: 18.6,
+                  endValue: 25.0,
                   startWidth: 0.265,
                   sizeUnit: GaugeSizeUnit.factor,
                   endWidth: 0.265,
                   color: const Color.fromRGBO(123, 199, 34, 0.75)),
               GaugeRange(
-                  startValue: 30,
-                  endValue: 40,
+                  startValue: 25.1,
+                  endValue: 30.0,
                   startWidth: 0.265,
                   sizeUnit: GaugeSizeUnit.factor,
                   endWidth: 0.265,
                   color: const Color.fromRGBO(238, 193, 34, 0.75)),
               GaugeRange(
-                  startValue: 40,
-                  endValue: 150,
+                  startValue: 30.0,
+                  endValue: 35.0,
                   startWidth: 0.265,
                   sizeUnit: GaugeSizeUnit.factor,
                   endWidth: 0.265,
                   color: const Color.fromRGBO(238, 79, 34, 0.65)),
+              GaugeRange(
+                  startValue: 35.0,
+                  endValue: 45.0,
+                  startWidth: 0.265,
+                  sizeUnit: GaugeSizeUnit.factor,
+                  endWidth: 0.265,
+                  color: const Color.fromRGBO(255, 79, 34, 0.65)),
             ],
             annotations: <GaugeAnnotation>[
-              GaugeAnnotation(
-                  angle: 90,
-                  positionFactor: 0.35,
-                  widget: Container(
-                      child: const Text('BMI',
-                          style: TextStyle(
-                              color: Color(0xFFF8B195), fontSize: 16)))),
+              // GaugeAnnotation(
+              //     angle: 90,
+              //     positionFactor: 0.35,
+              //     widget: Container(
+              //         child: const Text('BMI',
+              //             style: TextStyle(
+              //                 color: Color(0xFFF8B195), fontSize: 12)))),
               GaugeAnnotation(
                   angle: 90,
                   positionFactor: 0.8,
                   widget: Container(
                     child: Text(
                       '${widget.bmiValue}',
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                          color: Colors.pink.shade50),
                     ),
                   ))
             ],
@@ -105,7 +114,7 @@ class _BmiGaugeState extends State<BmiGauge> {
                 needleColor: const Color(0xFFF8B195),
               )
             ],
-            axisLabelStyle: GaugeTextStyle(fontSize: 12),
+            axisLabelStyle: GaugeTextStyle(fontSize: 10),
             majorTickStyle: MajorTickStyle(
                 length: 0.25, lengthUnit: GaugeSizeUnit.factor, thickness: 1.5),
             minorTickStyle: MinorTickStyle(

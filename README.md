@@ -6,7 +6,7 @@ Calculate your BMI
 
 ## Changelogs
 
-Wondering what is changed with every new releases?? I log them in [changelogs](https://telegra.ph/Changelogs---BMI-Calculator-Lite-07-21).
+Wondering what is changed with every new releases?? I log them in [changelogs history](https://telegra.ph/Changelogs---BMI-Calculator-Lite-07-21).
 
 ## Web demo
 
@@ -30,3 +30,7 @@ https://github.com/fareezMaple/bmi_calculator-Flutter
 
 1. Man On Bicycle BY VIVEK from https://www.glazestock.com/
 2. App Privacy Policy Generator from https://app-privacy-policy-generator.firebaseapp.com/
+
+## Honourable mention
+
+- [Syncfusion Community License](https://www.syncfusion.com/products/communitylicense) (Yay!)
