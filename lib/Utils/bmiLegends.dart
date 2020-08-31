@@ -15,9 +15,12 @@ class BmiLegends {
       return _legendsText[1];
     else if (value >= 18.5 && value < 25.0)
       return _legendsText[2];
-    else if (value >= 25.0 && value < 35)
+    else if (value >= 25.0 && value < 30)
       return _legendsText[3];
-    //TODO-sambung
+    else if (value >= 30 && value < 35)
+      return _legendsText[4];
+    else if (value >= 35)
+      return _legendsText[5];
     else
       return "Err";
   }

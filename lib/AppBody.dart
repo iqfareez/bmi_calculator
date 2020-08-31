@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:bmicalculator/Utils/bmiLegends.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
@@ -58,6 +59,8 @@ class _AppBodyState extends State<AppBody> {
     behavior: SnackBarBehavior.floating,
     duration: Duration(seconds: 2),
   );
+
+  BmiLegends bmiLegends = BmiLegends();
 
   @override
   Widget build(BuildContext context) {
@@ -178,12 +181,12 @@ class _AppBodyState extends State<AppBody> {
                               Scaffold.of(context).showSnackBar(snackBar);
                             } else {
                               setState(() {
-                                String answer = calculateBMI(
-                                        height: heightController.text,
-                                        weight: weightController.text)
-                                    .toStringAsFixed(1);
-                                calculatedBmi = answer;
-                                bmiResult = answer;
+                                double answer = calculateBMI(
+                                    height: heightController.text,
+                                    weight: weightController.text);
+                                String answerText = answer.toStringAsFixed(1);
+                                calculatedBmi = bmiLegends.getLegends(answer);
+                                bmiResult = answerText;
                               });
                             }
                           },

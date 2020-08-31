@@ -62,7 +62,7 @@ class MyHomePage extends StatelessWidget {
                 showAboutDialog(
                     context: context,
                     applicationName: 'BMI Calculator Lite',
-                    applicationVersion: '1.0.0+2',
+                    applicationVersion: '1.0.3+3',
                     applicationIcon: Image.network(
                       'https://firebasestorage.googleapis.com/v0/b/bmi-flutter-2e776.appspot.com/o/logounnamed%20(Custom).png?alt=media&token=b22b53f7-bfc6-4a9b-89f3-92e681d1fe6c',
                       width: 50,
@@ -77,11 +77,15 @@ class MyHomePage extends StatelessWidget {
                           url:
                               'https://github.com/fareezMaple/bmi_calculator-Flutter'),
                       aboutLinkButton(
-                          title: 'Follow me on Twitter',
+                          title: 'Twitter',
                           url: 'https://twitter.com/iqfareez2'),
                       aboutLinkButton(
                           title: 'Open on web',
                           url: 'https://bmi-flutter-2e776.web.app/'),
+                      aboutLinkButton(
+                          title: 'Release notes',
+                          url:
+                              'https://telegra.ph/Changelogs---BMI-Calculator-Lite-07-21')
                     ]);
               },
               tooltip: 'View some info',
