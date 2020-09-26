@@ -1,8 +1,50 @@
+import 'package:bmicalculator/Utils/bmiLegends.dart';
 import 'package:flutter/material.dart';
 
 //Responsible for showing table in main.dart
-// ignore: todo
-//TODO-LATER: Change to table widget
+const kRangeTextStyle = TextStyle(fontWeight: FontWeight.bold);
+
+class LegendsDataTable extends StatelessWidget {
+  final BmiLegends bmiLegends = BmiLegends();
+  static double bmiValue;
+  @override
+  Widget build(BuildContext context) {
+    return DataTable(
+      sortAscending: true,
+      sortColumnIndex: 0,
+      headingRowHeight: 36,
+      dataRowHeight: 25,
+      columns: [
+        DataColumn(label: Text('Range')),
+        DataColumn(label: Text('Description')),
+      ],
+      rows: [
+        buildDataRow('< 16.0', 'Severely Underweight',
+            0 == bmiLegends.getIndex(bmiValue)),
+        buildDataRow(
+            '16.0 - 18.5', 'Underweight', 1 == bmiLegends.getIndex(bmiValue)),
+        buildDataRow(
+            '18.6 - 25.0', 'Normal weight', 2 == bmiLegends.getIndex(bmiValue)),
+        buildDataRow(
+            '25.1 - 30.0', 'Overweight', 3 == bmiLegends.getIndex(bmiValue)),
+        buildDataRow('30.1 - 35.0', 'Moderately obese',
+            4 == bmiLegends.getIndex(bmiValue)),
+        buildDataRow(
+            '> 35.0', 'Severly obese', 5 == bmiLegends.getIndex(bmiValue))
+      ],
+    );
+  }
+
+  DataRow buildDataRow(String range, String description, bool isSelected) {
+    return DataRow(selected: isSelected, cells: [
+      DataCell(Text(
+        range,
+        style: kRangeTextStyle,
+      )),
+      DataCell(Text(description))
+    ]);
+  }
+}
 
 class LegendsTable extends StatelessWidget {
   @override

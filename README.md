@@ -1,8 +1,13 @@
 # bmicalculator
 
+![Works with Android](https://img.shields.io/badge/Works_with-Android-green?style=flat-square)
+![Maintenance](https://img.shields.io/maintenance/no/2020)
+
 BMI Calculator Lite is built with Flutter
 
 Calculate your BMI
+
+## App UI
 
 ## Changelogs
 

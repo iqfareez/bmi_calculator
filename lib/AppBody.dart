@@ -118,7 +118,7 @@ class _AppBodyState extends State<AppBody> {
                           margin: const EdgeInsets.all(10.0),
                           child: TextField(
                             controller: weightController,
-                            maxLength: 4,
+                            maxLength: 5,
                             decoration: InputDecoration(
                                 border: OutlineInputBorder(),
                                 labelText: "Weight ",
@@ -186,6 +186,7 @@ class _AppBodyState extends State<AppBody> {
                                     weight: weightController.text);
                                 String answerText = answer.toStringAsFixed(1);
                                 calculatedBmi = bmiLegends.getLegends(answer);
+                                LegendsDataTable.bmiValue = answer;
                                 bmiResult = answerText;
                               });
                             }
@@ -220,7 +221,7 @@ class _AppBodyState extends State<AppBody> {
                     ],
                   ),
                   SizedBox(height: 30),
-                  LegendsTable(),
+                  LegendsDataTable(),
                 ],
               ),
             )
