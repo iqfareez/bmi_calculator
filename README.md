@@ -9,6 +9,10 @@ Calculate your BMI
 
 ## App UI
 
+| GIF                                                                                                                                        | Screenshot                                                                                                                                 |
+| ------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| <img src="https://user-images.githubusercontent.com/60868965/94334737-4f988280-000a-11eb-92e8-161c9655be9b.gif" heigth="512" width="288"/> | <img src="https://user-images.githubusercontent.com/60868965/94332657-8fab3580-0009-11eb-852d-269a9838c1ba.jpg" heigth="512" width="288"/> |
+
 ## Changelogs
 
 Wondering what is changed with every new releases?? I log them in [changelogs history](https://telegra.ph/Changelogs---BMI-Calculator-Lite-07-21).
@@ -17,10 +21,17 @@ Wondering what is changed with every new releases?? I log them in [changelogs hi
 
 https://bmi-flutter-2e776.web.app/
 
-## Download app (coming soon)
+## Download app
 
 1. [Google Play Store](https://play.google.com/store/apps/details?id=live.iqfareez.bmicalculator)
 2. [APK](https://github.com/fareezMaple/bmi_calculator-Flutter/releases)
+
+## Pacakges in use
+
+1. [google_fonts](https://pub.dev/packages/google_fonts)
+2. [url_launcher](https://pub.dev/packages/url_launcher)
+3. [share](https://pub.dev/packages/share)
+4. [syncfusion_flutter_gauges](https://pub.dev/packages/syncfusion_flutter_gauges)
 
 ## Legalese
 
@@ -30,6 +41,8 @@ https://bmi-flutter-2e776.web.app/
 ## Repository link
 
 https://github.com/fareezMaple/bmi_calculator-Flutter
+
+##
 
 ## Attribution
 
