@@ -1,15 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:syncfusion_flutter_core/core.dart';
 import 'package:share/share.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import 'AppBody.dart';
 
 void main() {
-  SyncfusionLicense.registerLicense(
-      "NT8mJyc2IWhia31hfWN9Z2doYmF8YGJ8ampqanNiYmlmamlmanMDHmg6Ij4yP2ATPCYnPzw8OH0wPD4=");
-  //Get your free community license at https://www.syncfusion.com/products/communitylicense
   runApp(MyApp());
 }
 
@@ -68,7 +64,7 @@ class MyHomePage extends StatelessWidget {
                       'https://firebasestorage.googleapis.com/v0/b/bmi-flutter-2e776.appspot.com/o/logounnamed%20(Custom).png?alt=media&token=b22b53f7-bfc6-4a9b-89f3-92e681d1fe6c',
                       width: 50,
                     ),
-                    applicationLegalese: '© maplerr 2020',
+                    applicationLegalese: '© maplerr 2021',
                     children: <Widget>[
                       SizedBox(
                         height: 10.0,
@@ -76,7 +72,7 @@ class MyHomePage extends StatelessWidget {
                       aboutLinkButton(
                           title: "View on GitHub",
                           url:
-                              'https://github.com/fareezMaple/bmi_calculator-Flutter'),
+                              'https://github.com/iqfareez/bmi_calculator-Flutter'),
                       aboutLinkButton(
                           title: 'Twitter',
                           url: 'https://twitter.com/iqfareez2'),
