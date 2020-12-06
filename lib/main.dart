@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:share/share.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -38,20 +39,31 @@ class MyHomePage extends StatelessWidget {
           backgroundColor: Theme.of(context).primaryColor,
           elevation: 0.0,
           actions: [
-            IconButton(
-              icon: Icon(Icons.share),
-              onPressed: () {
-                print('Pressed');
-                if (bmiResult != null) {
-                  Share.share('My BMI is $bmiResult');
-                } else {
-                  Fluttertoast.showToast(
-                      msg: 'Calculate your BMI first',
-                      backgroundColor: Colors.red);
-                }
-              },
-              tooltip: 'Share your current BMI',
-            ),
+            kIsWeb
+                ? IconButton(
+                    tooltip: 'Copy your BMI result',
+                    icon: Icon(Icons.copy_rounded),
+                    onPressed: () {
+                      Clipboard.setData(
+                              ClipboardData(text: bmiResult.toString()))
+                          .then((value) =>
+                              Fluttertoast.showToast(msg: 'Done copy'));
+                    },
+                  )
+                : IconButton(
+                    icon: Icon(Icons.share),
+                    onPressed: () {
+                      print('Pressed');
+                      if (bmiResult != null) {
+                        Share.share('My BMI is $bmiResult');
+                      } else {
+                        Fluttertoast.showToast(
+                            msg: 'Calculate your BMI first',
+                            backgroundColor: Colors.red);
+                      }
+                    },
+                    tooltip: 'Share your current BMI',
+                  ),
             IconButton(
               icon: Icon(Icons.info),
               onPressed: () {
@@ -66,20 +78,25 @@ class MyHomePage extends StatelessWidget {
                     ),
                     applicationLegalese: '© maplerr 2021',
                     children: <Widget>[
-                      SizedBox(
-                        height: 10.0,
+                      Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: Text(
+                          'This app is made for fun by me during Covid-19 pandemic.\nMade with Flutter.\nHosted on Firebase.',
+                          textAlign: TextAlign.center,
+                        ),
                       ),
                       aboutLinkButton(
-                          title: "View on GitHub",
+                          title: "View code on GitHub",
                           url:
                               'https://github.com/iqfareez/bmi_calculator-Flutter'),
                       aboutLinkButton(
-                          title: 'Twitter',
+                          title: 'My Twitter',
                           url: 'https://twitter.com/iqfareez2'),
                       kIsWeb
                           ? GestureDetector(
-                              child:
-                                  Image.asset('assets/google-play-badge.png'),
+                              child: Image.asset(
+                                'assets/google-play-badge.png',
+                              ),
                               onTap: () {
                                 _launchURL(
                                     'https://play.google.com/store/apps/details?id=live.iqfareez.bmicalculator');
@@ -109,10 +126,13 @@ _launchURL(String url) async {
 }
 
 Widget aboutLinkButton({String title, String url}) {
-  return OutlineButton(
-    child: Text(title),
-    onPressed: () {
-      _launchURL(url);
-    },
+  return Padding(
+    padding: const EdgeInsets.all(8.0),
+    child: OutlineButton(
+      child: Text(title),
+      onPressed: () {
+        _launchURL(url);
+      },
+    ),
   );
 }
