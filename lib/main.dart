@@ -55,7 +55,8 @@ class MyHomePage extends StatelessWidget {
                     onPressed: () {
                       print('Pressed');
                       if (bmiResult != null) {
-                        Share.share('My BMI is $bmiResult');
+                        Share.share(
+                            'My BMI is $bmiResult\n\nDownload the app https://bit.ly/BMI-dl');
                       } else {
                         Fluttertoast.showToast(
                             msg: 'Calculate your BMI first',
@@ -71,7 +72,7 @@ class MyHomePage extends StatelessWidget {
                 showAboutDialog(
                     context: context,
                     applicationName: 'BMI Calculator Lite',
-                    applicationVersion: '1.0.3+3',
+                    applicationVersion: '1.2.11+5',
                     applicationIcon: Image.network(
                       'https://firebasestorage.googleapis.com/v0/b/bmi-flutter-2e776.appspot.com/o/logounnamed%20(Custom).png?alt=media&token=b22b53f7-bfc6-4a9b-89f3-92e681d1fe6c',
                       width: 50,
