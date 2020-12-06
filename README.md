@@ -17,7 +17,7 @@ Calculate your BMI
 
 Wondering what is changed with every new releases?? I log them in [changelogs history](https://telegra.ph/Changelogs---BMI-Calculator-Lite-07-21).
 
-## Web demo
+## Progressive web app
 
 https://bmi-flutter-2e776.web.app/
 
@@ -32,6 +32,7 @@ https://bmi-flutter-2e776.web.app/
 2. [url_launcher](https://pub.dev/packages/url_launcher)
 3. [share](https://pub.dev/packages/share)
 4. [syncfusion_flutter_gauges](https://pub.dev/packages/syncfusion_flutter_gauges)
+5. [fluttertoast](https://pub.dev/packages/fluttertoast)
 
 ## Legalese
 
