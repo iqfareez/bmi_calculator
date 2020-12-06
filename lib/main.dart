@@ -86,24 +86,21 @@ class MyHomePage extends StatelessWidget {
                         ),
                       ),
                       aboutLinkButton(
-                          title: "View code on GitHub",
+                          child: Text("View code on GitHub"),
                           url:
                               'https://github.com/iqfareez/bmi_calculator-Flutter'),
                       aboutLinkButton(
-                          title: 'My Twitter',
+                          child: Text('My Twitter'),
                           url: 'https://twitter.com/iqfareez2'),
                       kIsWeb
-                          ? GestureDetector(
+                          ? aboutLinkButton(
                               child: Image.asset(
                                 'assets/google-play-badge.png',
                               ),
-                              onTap: () {
-                                _launchURL(
-                                    'https://play.google.com/store/apps/details?id=live.iqfareez.bmicalculator');
-                              },
-                            )
+                              url:
+                                  'https://play.google.com/store/apps/details?id=live.iqfareez.bmicalculator')
                           : aboutLinkButton(
-                              title: 'Open on web',
+                              child: Text('Open on web'),
                               url: 'https://bmi-flutter-2e776.web.app/')
                     ]);
               },
@@ -125,11 +122,11 @@ _launchURL(String url) async {
   }
 }
 
-Widget aboutLinkButton({String title, String url}) {
+Widget aboutLinkButton({Widget child, String url}) {
   return Padding(
     padding: const EdgeInsets.all(8.0),
     child: OutlineButton(
-      child: Text(title),
+      child: child,
       onPressed: () {
         _launchURL(url);
       },
