@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:share/share.dart';
 import 'package:url_launcher/url_launcher.dart';
-
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'AppBody.dart';
 
 void main() {
@@ -76,9 +76,18 @@ class MyHomePage extends StatelessWidget {
                       aboutLinkButton(
                           title: 'Twitter',
                           url: 'https://twitter.com/iqfareez2'),
-                      aboutLinkButton(
-                          title: 'Open on web',
-                          url: 'https://bmi-flutter-2e776.web.app/'),
+                      kIsWeb
+                          ? GestureDetector(
+                              child:
+                                  Image.asset('assets/google-play-badge.png'),
+                              onTap: () {
+                                _launchURL(
+                                    'https://play.google.com/store/apps/details?id=live.iqfareez.bmicalculator');
+                              },
+                            )
+                          : aboutLinkButton(
+                              title: 'Open on web',
+                              url: 'https://bmi-flutter-2e776.web.app/')
                     ]);
               },
               tooltip: 'View some info',
