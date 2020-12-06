@@ -178,7 +178,8 @@ class _AppBodyState extends State<AppBody> {
                             print('weight is ' + weightController.text);
                             if (weightController.text == "" ||
                                 heightController.text == "") {
-                              Scaffold.of(context).showSnackBar(snackBar);
+                              ScaffoldMessenger.of(context)
+                                  .showSnackBar(snackBar);
                             } else {
                               setState(() {
                                 double answer = calculateBMI(
