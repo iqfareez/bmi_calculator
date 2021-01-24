@@ -1,5 +1,6 @@
 import 'dart:math';
 import 'package:bmicalculator/Utils/bmiLegends.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
@@ -160,64 +161,12 @@ class _AppBodyState extends State<AppBody> {
                   ),
                   SizedBox(height: 20.0),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: <Widget>[
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: RaisedButton(
-                          child: Text(
-                            "CALCULATE",
-                            style: TextStyle(color: Colors.white),
-                          ),
-                          color: Colors.green,
-                          onPressed: () {
-                            FocusManager.instance.primaryFocus.unfocus();
-                            print('Button calculate pressed');
-                            print('height is ' + heightController.text);
-                            print('weight is ' + weightController.text);
-                            if (weightController.text == "" ||
-                                heightController.text == "") {
-                              ScaffoldMessenger.of(context)
-                                  .showSnackBar(snackBar);
-                            } else {
-                              setState(() {
-                                double answer = calculateBMI(
-                                    height: heightController.text,
-                                    weight: weightController.text);
-                                String answerText = answer.toStringAsFixed(1);
-                                calculatedBmi = bmiLegends.getLegends(answer);
-                                LegendsDataTable.bmiValue = answer;
-                                bmiResult = answerText;
-                              });
-                            }
-                          },
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: RaisedButton(
-                          child: Text(
-                            "RESET",
-                            style: TextStyle(color: Colors.white),
-                          ),
-                          color: Colors.red,
-                          onPressed: () {
-                            FocusManager.instance.primaryFocus.unfocus();
-                            weightController.clear();
-                            heightController.clear();
-                            setState(() {
-                              calculatedBmi = 'Enter new data';
-                              bmiResult = "0.0";
-                            });
-                            Fluttertoast.showToast(
-                              msg: "Cleared",
-                              toastLength: Toast.LENGTH_SHORT,
-                              backgroundColor: Colors.orange,
-                              textColor: Colors.white,
-                            );
-                          },
-                        ),
-                      )
+                      Spacer(),
+                      buildCalculateButton(context),
+                      buildResetButton(),
+                      Spacer(),
                     ],
                   ),
                   SizedBox(height: 30),
@@ -226,6 +175,74 @@ class _AppBodyState extends State<AppBody> {
               ),
             )
           ],
+        ),
+      ),
+    );
+  }
+
+  Expanded buildResetButton() {
+    return Expanded(
+      flex: 3,
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: CupertinoButton(
+          padding: const EdgeInsets.symmetric(vertical: 14.0, horizontal: 4.0),
+          child: Text(
+            "RESET",
+            style: TextStyle(color: Colors.white),
+          ),
+          color: Colors.red,
+          onPressed: () {
+            FocusManager.instance.primaryFocus.unfocus();
+            weightController.clear();
+            heightController.clear();
+            setState(() {
+              calculatedBmi = 'Enter new data';
+              bmiResult = "0.0";
+            });
+            Fluttertoast.showToast(
+              msg: "Cleared",
+              toastLength: Toast.LENGTH_SHORT,
+              backgroundColor: Colors.orange,
+              textColor: Colors.white,
+            );
+          },
+        ),
+      ),
+    );
+  }
+
+  Expanded buildCalculateButton(BuildContext context) {
+    return Expanded(
+      flex: 3,
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: CupertinoButton(
+          padding: const EdgeInsets.symmetric(vertical: 14.0, horizontal: 4.0),
+          child: Text(
+            "CALCULATE",
+            style: TextStyle(color: Colors.white),
+          ),
+          color: Colors.green,
+          onPressed: () {
+            FocusManager.instance.primaryFocus.unfocus();
+            print('Button calculate pressed');
+            print('height is ' + heightController.text);
+            print('weight is ' + weightController.text);
+            if (weightController.text == "" || heightController.text == "") {
+              ScaffoldMessenger.of(context).showSnackBar(snackBar);
+            } else {
+              setState(() {
+                double answer = calculateBMI(
+                    height: heightController.text,
+                    weight: weightController.text);
+                String answerText = answer.toStringAsFixed(1);
+                calculatedBmi = bmiLegends.getLegends(answer);
+                LegendsDataTable.bmiValue = answer;
+                bmiResult = answerText;
+              });
+            }
+          },
         ),
       ),
     );

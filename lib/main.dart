@@ -72,21 +72,24 @@ class MyHomePage extends StatelessWidget {
                     context: context,
                     applicationName: 'BMI Calculator Lite',
                     applicationVersion: '1.2.11+5',
-                    applicationIcon: Hero(
-                      tag: 'appIcon',
-                      child: Image.network(
-                        'https://firebasestorage.googleapis.com/v0/b/bmi-flutter-2e776.appspot.com/o/logounnamed%20(Custom).png?alt=media&token=b22b53f7-bfc6-4a9b-89f3-92e681d1fe6c',
-                        width: 50,
-                      ),
+                    applicationIcon: Image.network(
+                      'https://firebasestorage.googleapis.com/v0/b/bmi-flutter-2e776.appspot.com/o/logounnamed%20(Custom).png?alt=media&token=b22b53f7-bfc6-4a9b-89f3-92e681d1fe6c',
+                      width: 50,
                     ),
-                    applicationLegalese: '© maplerr 2021',
+                    applicationLegalese: 'Copyright © Fareez Iqmal 2021',
                     children: <Widget>[
                       Padding(
                         padding: const EdgeInsets.all(16.0),
                         child: Text(
-                          'This app is made for fun by me during Covid-19 pandemic.\nMade with Flutter.\nHosted on Firebase.',
+                          'This app is created for fun by me during Covid-19 pandemic.',
                           textAlign: TextAlign.center,
                         ),
+                      ),
+                      Text(
+                        kIsWeb
+                            ? 'Hosted on Firebase'
+                            : '☆*: .｡. o(≧▽≦)o .｡.:*☆',
+                        textAlign: TextAlign.center,
                       ),
                       aboutLinkButton(
                           child: Text("View code on GitHub"),
@@ -103,7 +106,12 @@ class MyHomePage extends StatelessWidget {
                               url:
                                   'https://play.google.com/store/apps/details?id=live.iqfareez.bmicalculator')
                           : aboutLinkButton(
-                              child: Text('Open on web'),
+                              child: Padding(
+                                padding: const EdgeInsets.all(16.0),
+                                child: Image.asset(
+                                  'assets/pwa-logo.png',
+                                ),
+                              ),
                               url: 'https://bmi-flutter-2e776.web.app/')
                     ]);
               },
