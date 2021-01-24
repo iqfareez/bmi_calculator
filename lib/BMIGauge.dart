@@ -97,7 +97,7 @@ class _BmiGaugeState extends State<BmiGauge> {
                 lengthUnit: GaugeSizeUnit.factor,
                 needleStartWidth: 1,
                 needleEndWidth: 8,
-                animationType: AnimationType.easeOutBack,
+                animationType: AnimationType.elasticOut,
                 enableAnimation: true,
                 animationDuration: 1200,
                 knobStyle: KnobStyle(

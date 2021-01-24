@@ -68,14 +68,16 @@ class MyHomePage extends StatelessWidget {
             IconButton(
               icon: Icon(Icons.info),
               onPressed: () {
-                print('Info');
                 showAboutDialog(
                     context: context,
                     applicationName: 'BMI Calculator Lite',
                     applicationVersion: '1.2.11+5',
-                    applicationIcon: Image.network(
-                      'https://firebasestorage.googleapis.com/v0/b/bmi-flutter-2e776.appspot.com/o/logounnamed%20(Custom).png?alt=media&token=b22b53f7-bfc6-4a9b-89f3-92e681d1fe6c',
-                      width: 50,
+                    applicationIcon: Hero(
+                      tag: 'appIcon',
+                      child: Image.network(
+                        'https://firebasestorage.googleapis.com/v0/b/bmi-flutter-2e776.appspot.com/o/logounnamed%20(Custom).png?alt=media&token=b22b53f7-bfc6-4a9b-89f3-92e681d1fe6c',
+                        width: 50,
+                      ),
                     ),
                     applicationLegalese: '© maplerr 2021',
                     children: <Widget>[
