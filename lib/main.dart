@@ -100,8 +100,11 @@ class MyHomePage extends StatelessWidget {
                           url: 'https://twitter.com/iqfareez2'),
                       kIsWeb
                           ? aboutLinkButton(
-                              child: Image.asset(
-                                'assets/google-play-badge.png',
+                              child: Padding(
+                                padding: const EdgeInsets.all(16.0),
+                                child: Image.asset(
+                                  'assets/google-play-badge.png',
+                                ),
                               ),
                               url:
                                   'https://play.google.com/store/apps/details?id=live.iqfareez.bmicalculator')
