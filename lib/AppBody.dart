@@ -164,8 +164,8 @@ class _AppBodyState extends State<AppBody> {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: <Widget>[
                       Spacer(),
-                      buildCalculateButton(context),
                       buildResetButton(),
+                      buildCalculateButton(context),
                       Spacer(),
                     ],
                   ),
