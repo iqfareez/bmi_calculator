@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "207765775677",
+    "firebase_url": "https://bmi-flutter-2e776.firebaseio.com",
+    "project_id": "bmi-flutter-2e776",
+    "storage_bucket": "bmi-flutter-2e776.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:207765775677:android:e67ed9699834fc2a181154",
+        "android_client_info": {
+          "package_name": "live.iqfareez.bmicalculator"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "207765775677-a23l1f5967jsleh8pn93uv0s66d08hg8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "live.iqfareez.bmicalculator",
+            "certificate_hash": "9c38892f9c8bd2b3f2587c51728ca72da61c3301"
+          }
+        },
+        {
+          "client_id": "207765775677-rdgcr819f3let3qr4k5mnva81rq44c3u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCqvCrZnViutkpqi32vOfJyXmYQACDT63Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "207765775677-rdgcr819f3let3qr4k5mnva81rq44c3u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
