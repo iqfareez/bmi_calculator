@@ -31,7 +31,7 @@ def keystoreProperties = new Properties()
        keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 30
 
     lintOptions {
         disable 'InvalidPackage'
@@ -40,7 +40,7 @@ android {
     defaultConfig {
         
         applicationId "live.iqfareez.bmicalculator"
-        minSdkVersion 16
+        minSdkVersion 21
         targetSdkVersion 30
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
