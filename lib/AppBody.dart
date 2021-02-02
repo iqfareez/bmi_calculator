@@ -65,6 +65,8 @@ class _AppBodyState extends State<AppBody> {
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
+    final node = FocusScope.of(context);
+
     return SafeArea(
       child: SingleChildScrollView(
         child: Column(
@@ -130,8 +132,7 @@ class _AppBodyState extends State<AppBody> {
                             keyboardType: TextInputType.number,
                             inputFormatters: [_amountValidator],
                             textInputAction: TextInputAction.next,
-                            onSubmitted: (_) =>
-                                FocusScope.of(context).nextFocus(),
+                            onEditingComplete: () => node.nextFocus(),
                           ),
                         ),
                       ),
@@ -139,22 +140,20 @@ class _AppBodyState extends State<AppBody> {
                         child: Container(
                           margin: const EdgeInsets.all(10.0),
                           child: TextField(
-                            controller: heightController,
-                            maxLength: 4,
-                            decoration: InputDecoration(
-                                counter: Offstage(),
-                                border: OutlineInputBorder(),
-                                labelText: "Height",
-                                hintText: "Eg: 1.73",
-                                suffixText: "m",
-                                alignLabelWithHint: false,
-                                filled: true),
-                            keyboardType: TextInputType.number,
-                            inputFormatters: [_amountValidator],
-                            textInputAction: TextInputAction.done,
-                            onSubmitted: (_) =>
-                                FocusScope.of(context).unfocus(),
-                          ),
+                              controller: heightController,
+                              maxLength: 4,
+                              decoration: InputDecoration(
+                                  counter: Offstage(),
+                                  border: OutlineInputBorder(),
+                                  labelText: "Height",
+                                  hintText: "Eg: 1.73",
+                                  suffixText: "m",
+                                  alignLabelWithHint: false,
+                                  filled: true),
+                              keyboardType: TextInputType.number,
+                              inputFormatters: [_amountValidator],
+                              textInputAction: TextInputAction.done,
+                              onSubmitted: (_) => node.unfocus()),
                         ),
                       )
                     ],
@@ -203,7 +202,7 @@ class _AppBodyState extends State<AppBody> {
             Fluttertoast.showToast(
               msg: "Cleared",
               toastLength: Toast.LENGTH_SHORT,
-              backgroundColor: Colors.orange,
+              backgroundColor: Colors.orange.shade700,
               textColor: Colors.white,
             );
           },
