@@ -26,6 +26,10 @@ double calculateBMI({String weight, String height}) {
     _weight = double.parse(weight);
     _height = double.parse(height);
   } on FormatException {
+    Fluttertoast.showToast(
+        msg: 'Format Exception: Invalid format',
+        backgroundColor: Colors.red,
+        webBgColor: "linear-gradient(to right, #ED213A, #93291E)");
     print('Invalid format');
   }
 
@@ -225,7 +229,6 @@ class _AppBodyState extends State<AppBody> {
           color: Colors.green,
           onPressed: () {
             FocusManager.instance.primaryFocus.unfocus();
-            print('Button calculate pressed');
             print('height is ' + heightController.text);
             print('weight is ' + weightController.text);
             if (weightController.text == "" || heightController.text == "") {

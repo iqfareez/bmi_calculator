@@ -133,10 +133,11 @@ _launchURL(String url) async {
     await launch(url);
   } else {
     Fluttertoast.showToast(
-        msg: 'Can\'t launch URL',
-        backgroundColor: Colors.red,
-        timeInSecForIosWeb: 2,
-        webBgColor: "linear-gradient(to right, #ED213A, #93291E)");
+      msg: 'Can\'t launch URL',
+      backgroundColor: Colors.red,
+      timeInSecForIosWeb: 2,
+      webBgColor: "linear-gradient(to right, #ED213A, #93291E)",
+    );
 
     throw 'Could not launch $url';
   }
