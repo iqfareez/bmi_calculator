@@ -25,7 +25,7 @@ class BmiLegends {
       return "Err";
   }
 
-  int getIndex(double value) {
+  int getIndex(double? value) {
     value ??=
         400.0; //This means if value is null then set it equal to 400. Otherwise, don't change it.
     if (value < 16.0)

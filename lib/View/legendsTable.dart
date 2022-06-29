@@ -6,7 +6,7 @@ const kRangeTextStyle = TextStyle(fontWeight: FontWeight.bold);
 
 class LegendsDataTable extends StatelessWidget {
   final BmiLegends bmiLegends = BmiLegends();
-  static double bmiValue;
+  static double? bmiValue;
   @override
   Widget build(BuildContext context) {
     return DataTable(

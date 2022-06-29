@@ -140,13 +140,13 @@ _launchURL(String url) async {
   }
 }
 
-Widget aboutLinkButton({Widget child, String url}) {
+Widget aboutLinkButton({required Widget child, String? url}) {
   return Padding(
     padding: const EdgeInsets.all(8.0),
     child: OutlinedButton(
       child: child,
       onPressed: () {
-        _launchURL(url);
+        _launchURL(url!);
       },
     ),
   );

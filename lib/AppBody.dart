@@ -16,9 +16,9 @@ class AppBody extends StatefulWidget {
   _AppBodyState createState() => _AppBodyState();
 }
 
-double calculateBMI({String weight, String height}) {
-  double _weight;
-  double _height;
+double calculateBMI({required String weight, required String height}) {
+  late double _weight;
+  late double _height;
 
   try {
     _weight = double.parse(weight);
@@ -194,7 +194,7 @@ class _AppBodyState extends State<AppBody> {
           ),
           color: Colors.red,
           onPressed: () {
-            FocusManager.instance.primaryFocus.unfocus();
+            FocusManager.instance.primaryFocus!.unfocus();
             weightController.clear();
             heightController.clear();
             setState(() {
@@ -226,7 +226,7 @@ class _AppBodyState extends State<AppBody> {
           ),
           color: Colors.green,
           onPressed: () {
-            FocusManager.instance.primaryFocus.unfocus();
+            FocusManager.instance.primaryFocus!.unfocus();
             print('height is ' + heightController.text);
             print('weight is ' + weightController.text);
             if (weightController.text == "" || heightController.text == "") {

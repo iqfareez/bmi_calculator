@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
 
 class BmiGauge extends StatefulWidget {
-  final double bmiValue;
+  final double? bmiValue;
   BmiGauge({this.bmiValue = 0});
   @override
   _BmiGaugeState createState() => _BmiGaugeState();
@@ -92,7 +92,7 @@ class _BmiGaugeState extends State<BmiGauge> {
             ],
             pointers: <GaugePointer>[
               NeedlePointer(
-                value: widget.bmiValue,
+                value: widget.bmiValue!,
                 needleLength: 0.6,
                 lengthUnit: GaugeSizeUnit.factor,
                 needleStartWidth: 1,
