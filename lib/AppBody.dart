@@ -2,8 +2,6 @@ import 'dart:math';
 import 'package:bmicalculator/Utils/bmiLegends.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'BMIGauge.dart';

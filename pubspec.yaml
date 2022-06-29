@@ -12,11 +12,11 @@ dependencies:
   flutter:
     sdk: flutter
 
-  google_fonts: ^1.1.0
-  url_launcher: ^5.4.11
-  share: ^0.6.4+3
-  syncfusion_flutter_gauges: ^18.2.54
-  fluttertoast: ^7.0.2
+  google_fonts: ^3.0.1
+  url_launcher: ^6.1.4
+  share: ^2.0.4
+  syncfusion_flutter_gauges: ^20.1.61
+  fluttertoast: ^8.0.9
 
 dev_dependencies:
   flutter_test:

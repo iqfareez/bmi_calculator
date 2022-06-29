@@ -1,4 +1,4 @@
-package live.iqfareez.bmi_calculator
+package live.iqfareez.bmicalculator
 
 import io.flutter.embedding.android.FlutterActivity
 

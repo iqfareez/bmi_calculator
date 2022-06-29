@@ -93,11 +93,10 @@ class MyHomePage extends StatelessWidget {
                       ),
                       aboutLinkButton(
                           child: Text("View code on GitHub"),
-                          url:
-                              'https://github.com/iqfareez/bmi_calculator-Flutter'),
+                          url: 'https://github.com/iqfareez/bmi_calculator'),
                       aboutLinkButton(
                           child: Text('My Twitter'),
-                          url: 'https://twitter.com/iqfareez2'),
+                          url: 'https://twitter.com/iqfareez'),
                       kIsWeb
                           ? aboutLinkButton(
                               child: Padding(
@@ -129,9 +128,7 @@ class MyHomePage extends StatelessWidget {
 }
 
 _launchURL(String url) async {
-  if (await canLaunch(url)) {
-    await launch(url);
-  } else {
+  if (!await launchUrl(Uri.parse(url), mode: LaunchMode.externalApplication)) {
     Fluttertoast.showToast(
       msg: 'Can\'t launch URL',
       backgroundColor: Colors.red,
@@ -146,7 +143,7 @@ _launchURL(String url) async {
 Widget aboutLinkButton({Widget child, String url}) {
   return Padding(
     padding: const EdgeInsets.all(8.0),
-    child: OutlineButton(
+    child: OutlinedButton(
       child: child,
       onPressed: () {
         _launchURL(url);
