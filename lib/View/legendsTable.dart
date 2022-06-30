@@ -1,123 +1,50 @@
-import 'package:bmicalculator/Utils/bmiLegends.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-//Responsible for showing table in main.dart
-const kRangeTextStyle = TextStyle(fontWeight: FontWeight.bold);
+import '../Utils/bmi_enums.dart';
+import '../providers/bmi_provider.dart';
 
 class LegendsDataTable extends StatelessWidget {
-  final BmiLegends bmiLegends = BmiLegends();
+  const LegendsDataTable({Key? key}) : super(key: key);
   static double? bmiValue;
-  @override
-  Widget build(BuildContext context) {
-    return DataTable(
-      sortAscending: true,
-      sortColumnIndex: 0,
-      headingRowHeight: 36,
-      dataRowHeight: 25,
-      columns: [
-        DataColumn(label: Text('Range')),
-        DataColumn(label: Text('Description')),
-      ],
-      rows: [
-        buildDataRow('< 16.0', 'Severely Underweight',
-            0 == bmiLegends.getIndex(bmiValue)),
-        buildDataRow(
-            '16.0 - 18.5', 'Underweight', 1 == bmiLegends.getIndex(bmiValue)),
-        buildDataRow(
-            '18.6 - 25.0', 'Normal weight', 2 == bmiLegends.getIndex(bmiValue)),
-        buildDataRow(
-            '25.1 - 30.0', 'Overweight', 3 == bmiLegends.getIndex(bmiValue)),
-        buildDataRow('30.1 - 35.0', 'Moderately obese',
-            4 == bmiLegends.getIndex(bmiValue)),
-        buildDataRow(
-            '> 35.0', 'Severly obese', 5 == bmiLegends.getIndex(bmiValue))
-      ],
-    );
+
+  String buildRangeString(double? min, double? max) {
+    if (min == null) {
+      return '> $max';
+    }
+    if (max == null) {
+      return '< $min';
+    }
+    return '${min.toStringAsFixed(1)} - ${max.toStringAsFixed(1)}';
   }
 
-  DataRow buildDataRow(String range, String description, bool isSelected) {
-    return DataRow(selected: isSelected, cells: [
-      DataCell(Text(
-        range,
-        style: kRangeTextStyle,
-      )),
-      DataCell(Text(description))
-    ]);
-  }
-}
-
-class LegendsTable extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: <Widget>[
-        Expanded(
-          child: Container(
-            margin: const EdgeInsets.all(10.0),
-            child: RichText(
-              text: TextSpan(
-                  text: 'Legends:\n',
-                  style: DefaultTextStyle.of(context).style,
-                  children: <TextSpan>[
-                    TextSpan(
-                      text: '• Less than',
-                    ),
-                    TextSpan(
-                        text: ' 16.0 - ',
-                        style: TextStyle(fontWeight: FontWeight.bold)),
-                    TextSpan(
-                      text: 'Severely Underweight\n',
-                    ),
-                    TextSpan(
-                      text: '• From',
-                    ),
-                    TextSpan(
-                        text: ' 16.0 to 18.5 - ',
-                        style: TextStyle(fontWeight: FontWeight.bold)),
-                    TextSpan(
-                      text: 'Underweight\n',
-                    ),
-                    TextSpan(
-                      text: '• From',
-                    ),
-                    TextSpan(
-                        text: ' 18.6 to 25.0 - ',
-                        style: TextStyle(fontWeight: FontWeight.bold)),
-                    TextSpan(
-                      text: 'Normal Weight\n',
-                    ),
-                    TextSpan(
-                      text: '• From',
-                    ),
-                    TextSpan(
-                        text: ' 25.1 to 30.0 - ',
-                        style: TextStyle(fontWeight: FontWeight.bold)),
-                    TextSpan(
-                      text: 'Overweight\n',
-                    ),
-                    TextSpan(
-                      text: '• From',
-                    ),
-                    TextSpan(
-                        text: ' 30.1 to 35.0 - ',
-                        style: TextStyle(fontWeight: FontWeight.bold)),
-                    TextSpan(
-                      text: 'Moderately Obese\n',
-                    ),
-                    TextSpan(
-                      text: '• More than',
-                    ),
-                    TextSpan(
-                        text: ' 35.0 - ',
-                        style: TextStyle(fontWeight: FontWeight.bold)),
-                    TextSpan(
-                      text: 'Severely Obese\n',
-                    ),
-                  ]),
-            ),
-          ),
-        )
-      ],
+    return Consumer<BmiProvider>(
+      builder: (context, value, child) => DataTable(
+        headingRowHeight: 36,
+        dataRowHeight: 25,
+        columns: const [
+          DataColumn(
+              label: Align(
+            child: Text('Range (kg)'),
+          )),
+          DataColumn(label: Text('Description')),
+        ],
+        rows: BmiEnums.values
+            .map((e) => DataRow(
+                  selected: value.bmiEnum == e,
+                  cells: [
+                    DataCell(Text(
+                      buildRangeString(e.min, e.max),
+                      textAlign: TextAlign.end,
+                      style: const TextStyle(fontWeight: FontWeight.bold),
+                    )),
+                    DataCell(Text(e.description))
+                  ],
+                ))
+            .toList(),
+      ),
     );
   }
 }

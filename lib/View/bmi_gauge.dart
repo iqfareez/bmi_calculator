@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
 
+/// Draw the BMI gauge using syncfuison package
 class BmiGauge extends StatefulWidget {
-  final double? bmiValue;
-  BmiGauge({this.bmiValue = 0});
+  final double bmiValue;
+  const BmiGauge({Key? key, required this.bmiValue}) : super(key: key);
   @override
-  _BmiGaugeState createState() => _BmiGaugeState();
+  State<BmiGauge> createState() => _BmiGaugeState();
 }
 
 class _BmiGaugeState extends State<BmiGauge> {
@@ -70,29 +71,20 @@ class _BmiGaugeState extends State<BmiGauge> {
                   color: const Color.fromRGBO(255, 79, 34, 0.65)),
             ],
             annotations: <GaugeAnnotation>[
-              // GaugeAnnotation(
-              //     angle: 90,
-              //     positionFactor: 0.35,
-              //     widget: Container(
-              //         child: const Text('BMI',
-              //             style: TextStyle(
-              //                 color: Color(0xFFF8B195), fontSize: 12)))),
               GaugeAnnotation(
                   angle: 90,
-                  positionFactor: 0.8,
-                  widget: Container(
-                    child: Text(
-                      '${widget.bmiValue}',
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20,
-                          color: Colors.pink.shade50),
-                    ),
+                  positionFactor: .8,
+                  widget: Text(
+                    widget.bmiValue.toStringAsFixed(2),
+                    style: const TextStyle(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 20,
+                        color: Colors.pink),
                   ))
             ],
             pointers: <GaugePointer>[
               NeedlePointer(
-                value: widget.bmiValue!,
+                value: widget.bmiValue,
                 needleLength: 0.6,
                 lengthUnit: GaugeSizeUnit.factor,
                 needleStartWidth: 1,
@@ -100,24 +92,24 @@ class _BmiGaugeState extends State<BmiGauge> {
                 animationType: AnimationType.elasticOut,
                 enableAnimation: true,
                 animationDuration: 1200,
-                knobStyle: KnobStyle(
+                knobStyle: const KnobStyle(
                     knobRadius: 0.09,
                     sizeUnit: GaugeSizeUnit.factor,
-                    borderColor: const Color(0xFFF8B195),
+                    borderColor: Color(0xFFF8B195),
                     color: Colors.white,
                     borderWidth: 0.05),
-                tailStyle: TailStyle(
-                    color: const Color(0xFFF8B195),
+                tailStyle: const TailStyle(
+                    color: Color(0xFFF8B195),
                     width: 8,
                     lengthUnit: GaugeSizeUnit.factor,
                     length: 0.2),
                 needleColor: const Color(0xFFF8B195),
               )
             ],
-            axisLabelStyle: GaugeTextStyle(fontSize: 10),
-            majorTickStyle: MajorTickStyle(
+            axisLabelStyle: const GaugeTextStyle(fontSize: 10),
+            majorTickStyle: const MajorTickStyle(
                 length: 0.25, lengthUnit: GaugeSizeUnit.factor, thickness: 1.5),
-            minorTickStyle: MinorTickStyle(
+            minorTickStyle: const MinorTickStyle(
                 length: 0.13, lengthUnit: GaugeSizeUnit.factor, thickness: 1))
       ],
     );
