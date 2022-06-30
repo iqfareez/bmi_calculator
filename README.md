@@ -1,11 +1,11 @@
-# BMI Calculator Lite Flutter
+# BMI Calculator Lite
 
 ![Works with Android](https://img.shields.io/badge/Works_with-Android-green?style=flat-square)
-![Maintenance](https://img.shields.io/maintenance/yes/2021)
+![Maintenance](https://img.shields.io/maintenance/yes/2022)
 
-BMI Calculator Lite is built with Flutter
+BMI Calculator Lite is built with [Flutter](https://flutter.dev/)
 
-Calculate your BMI
+This is a very simple app to calculate and get your BMI status.
 
 ## App UI
 
@@ -15,7 +15,7 @@ Calculate your BMI
 
 ## Changelog
 
-Wondering what is changed with every new releases?? I log them in [changelog history](https://telegra.ph/Changelogs---BMI-Calculator-Lite-07-21).
+Wondering what is changed with every new release?? I log them in [changelog history](https://telegra.ph/Changelogs---BMI-Calculator-Lite-07-21).
 
 ## Progressive web app
 
@@ -24,26 +24,24 @@ https://bmi-flutter-2e776.web.app/
 ## Download app
 
 1. [Google Play Store](https://play.google.com/store/apps/details?id=live.iqfareez.bmicalculator)
-2. [APK](https://github.com/fareezMaple/bmi_calculator-Flutter/releases)
+2. [APK](https://github.com/fareezMaple/bmi_calculator/releases)
 
 ## Packages in use
 
-1. [google_fonts](https://pub.dev/packages/google_fonts)
-2. [url_launcher](https://pub.dev/packages/url_launcher)
-3. [share](https://pub.dev/packages/share)
-4. [syncfusion_flutter_gauges](https://pub.dev/packages/syncfusion_flutter_gauges)
-5. [fluttertoast](https://pub.dev/packages/fluttertoast)
+| Name                      | Link                                               |
+| ------------------------- | -------------------------------------------------- |
+| google_fonts              | https://pub.dev/packages/google_fonts              |
+| url_launcher              | https://pub.dev/packages/url_launcher              |
+| share                     | https://pub.dev/packages/share                     |
+| syncfusion_flutter_gauges | https://pub.dev/packages/syncfusion_flutter_gauges |
+| fluttertoast              | https://pub.dev/packages/fluttertoast              |
+| flutter_lints             | https://pub.dev/packages/flutter_lints             |
+| provider                  | https://pub.dev/packages/provider                  |
 
 ## Legalese
 
 - [Terms & Conditions](https://telegra.ph/TC---BMI-Calculator-Lite-07-21)
 - [Privacy Policy](https://telegra.ph/Privacy-Policy---BMI-Calculator-Lite-07-21)
-
-## Repository link
-
-https://github.com/fareezMaple/bmi_calculator-Flutter
-
-##
 
 ## Attribution
 
