@@ -19,6 +19,7 @@ dependencies:
   fluttertoast: ^8.0.9
   flutter_lints: ^2.0.1
   provider: ^6.0.3
+  flutter_svg: ^1.1.1+1
 
 dev_dependencies:
   flutter_test:
@@ -31,3 +32,4 @@ flutter:
   assets:
     - assets/google-play-badge.png
     - assets/pwa-logo.png
+    - assets/app-logo.svg
