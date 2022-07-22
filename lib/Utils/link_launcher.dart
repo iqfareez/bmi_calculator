@@ -5,7 +5,8 @@ import 'package:url_launcher/url_launcher.dart';
 class LinkLauncher {
   ///  launch the given url
   static void launch(String url) async {
-    if (!await launchUrl(Uri.parse(url))) {
+    if (!await launchUrl(Uri.parse(url),
+        mode: LaunchMode.externalApplication)) {
       Fluttertoast.showToast(
           msg: "Cannot launch url $url", backgroundColor: Colors.red);
     }
