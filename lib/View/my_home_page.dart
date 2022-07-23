@@ -3,6 +3,7 @@ import 'package:bmicalculator/View/gauge_result.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:provider/provider.dart';
 import 'package:share/share.dart';
@@ -80,52 +81,62 @@ class MyHomePage extends StatelessWidget {
 
   void showAppAboutDialog(BuildContext context) {
     return showAboutDialog(
-        context: context,
-        applicationName: 'BMI Calculator Lite',
-        applicationVersion: '1.2.11+5',
-        applicationIcon: Image.network(
-          'https://firebasestorage.googleapis.com/v0/b/bmi-flutter-2e776.appspot.com/o/logounnamed%20(Custom).png?alt=media&token=b22b53f7-bfc6-4a9b-89f3-92e681d1fe6c',
-          width: 50,
-        ),
-        applicationLegalese: 'Copyright © Fareez Iqmal 2021',
-        children: <Widget>[
-          const Padding(
-            padding: EdgeInsets.all(16.0),
-            child: Text(
-              'This app is created for fun during Covid-19 pandemic.',
-              textAlign: TextAlign.center,
-            ),
-          ),
-          const Text(
-            kIsWeb ? 'Hosted on Firebase' : '☆*: .｡. o(≧▽≦)o .｡.:*☆',
+      context: context,
+      applicationName: 'BMI Calculator Lite',
+      applicationVersion: '1.2.11+5',
+      applicationIcon: SvgPicture.asset(
+        'assets/app-logo.svg',
+        height: 55,
+        width: 55,
+      ),
+      applicationLegalese: 'Copyright © Fareez Iqmal 2021',
+      children: <Widget>[
+        const Padding(
+          padding: EdgeInsets.all(16.0),
+          child: Text(
+            'This app was created for fun during the Covid-19 pandemic.',
             textAlign: TextAlign.center,
           ),
-          OutlinedButton(
-              onPressed: () {
-                LinkLauncher.launch(
-                    'https://github.com/iqfareez/bmi_calculator');
-              },
-              child: const Text("View code on GitHub")),
-          OutlinedButton(
-            child: const Text('My Twitter'),
+        ),
+        const Text(
+          kIsWeb ? 'Hosted on Firebase' : '☆*: .｡. o(≧▽≦)o .｡.:*☆',
+          textAlign: TextAlign.center,
+        ),
+        OutlinedButton(
             onPressed: () {
-              LinkLauncher.launch('https://twitter.com/iqfareez');
+              LinkLauncher.launch('https://github.com/iqfareez/bmi_calculator');
             },
-          ),
-          kIsWeb
-              ? OutlinedButton.icon(
-                  onPressed: () {
-                    LinkLauncher.launch(
-                        'https://play.google.com/store/apps/details?id=live.iqfareez.bmicalculator');
-                  },
-                  icon: const Icon(Icons.picture_as_pdf_sharp),
-                  label: const Text("Get app from Google Play Store"))
-              : OutlinedButton.icon(
-                  onPressed: () {
-                    LinkLauncher.launch('https://bmi-flutter-2e776.web.app/');
-                  },
-                  icon: const Icon(Icons.web),
-                  label: const Text("Open app online"))
-        ]);
+            child: const Text("View code on GitHub")),
+        kIsWeb
+            ? OutlinedButton.icon(
+                onPressed: () {
+                  LinkLauncher.launch(
+                      'https://play.google.com/store/apps/details?id=live.iqfareez.bmicalculator');
+                },
+                icon: const Icon(Icons.picture_as_pdf_sharp),
+                label: const Text("Get app from Google Play Store"))
+            : OutlinedButton(
+                onPressed: () {
+                  LinkLauncher.launch('https://bmi-flutter-2e776.web.app/');
+                },
+                child: const Text("Open app online")),
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            IconButton(
+                onPressed: () {
+                  LinkLauncher.launch('url:https://www.twitter.com/iqfareez');
+                },
+                icon: SvgPicture.asset('assets/twitter-logo.svg')),
+            IconButton(
+                onPressed: () {
+                  LinkLauncher.launch('url:https://iqfareez.com');
+                },
+                icon: SvgPicture.asset('assets/chrome-logo.svg'))
+          ],
+        ),
+      ],
+    );
   }
 }
