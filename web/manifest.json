@@ -4,7 +4,7 @@
   "start_url": ".",
   "display": "standalone",
   "background_color": "#E91E63",
-  "theme_color": "#0175C2",
+  "theme_color": "#F8C8DC",
   "description": "Calculate your Body Mass Index (BMI) online.",
   "orientation": "portrait-primary",
   "prefer_related_applications": false,
