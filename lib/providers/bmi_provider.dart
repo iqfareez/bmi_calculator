@@ -1,5 +1,6 @@
-import 'package:bmicalculator/Utils/bmi_enums.dart';
 import 'package:flutter/material.dart';
+
+import '../Utils/bmi_enums.dart';
 
 class BmiProvider extends ChangeNotifier {
   double _bmiValue = 0;

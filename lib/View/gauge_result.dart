@@ -1,8 +1,7 @@
-import 'package:bmicalculator/providers/bmi_provider.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
+import '../providers/bmi_provider.dart';
 import 'bmi_gauge.dart';
 
 class GaugeResult extends StatelessWidget implements PreferredSizeWidget {

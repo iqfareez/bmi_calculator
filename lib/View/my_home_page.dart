@@ -1,14 +1,13 @@
-import 'package:bmicalculator/Utils/link_launcher.dart';
-import 'package:bmicalculator/View/gauge_result.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:provider/provider.dart';
 import 'package:share_plus/share_plus.dart';
 
+import '../Utils/link_launcher.dart';
 import '../providers/bmi_provider.dart';
+import 'gauge_result.dart';
 import 'input_data.dart';
 import 'legendsTable.dart';
 
