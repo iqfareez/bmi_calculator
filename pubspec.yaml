@@ -14,7 +14,7 @@ dependencies:
 
   google_fonts: ^3.0.1
   url_launcher: ^6.1.4
-  share: ^2.0.4
+  share_plus: ^4.0.10
   syncfusion_flutter_gauges: ^20.1.61
   fluttertoast: ^8.0.9
   flutter_lints: ^2.0.1

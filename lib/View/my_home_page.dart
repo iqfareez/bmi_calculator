@@ -6,7 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:provider/provider.dart';
-import 'package:share/share.dart';
+import 'package:share_plus/share_plus.dart';
 
 import '../providers/bmi_provider.dart';
 import 'input_data.dart';
@@ -31,31 +31,27 @@ class MyHomePage extends StatelessWidget {
           elevation: 0.0,
           bottom: const GaugeResult(),
           actions: [
-            kIsWeb
-                ? IconButton(
-                    tooltip: 'Copy your BMI result',
-                    icon: const Icon(Icons.copy_rounded),
-                    onPressed: () {
-                      Clipboard.setData(
-                              ClipboardData(text: bmiResult.toStringAsFixed(2)))
-                          .then((value) =>
-                              Fluttertoast.showToast(msg: 'Done copy'));
-                    },
-                  )
-                : IconButton(
-                    icon: const Icon(Icons.share),
-                    onPressed: () {
-                      if (bmiResult > 0) {
-                        Share.share(
-                            'My BMI is ${bmiResult.toStringAsFixed(2)}\n\nDownload the app https://go.iqfareez.com/bmiDL');
-                      } else {
-                        Fluttertoast.showToast(
-                            msg: 'Calculate your BMI first',
-                            backgroundColor: Colors.red);
-                      }
-                    },
-                    tooltip: 'Share your current BMI',
-                  ),
+            IconButton(
+              icon: const Icon(Icons.share),
+              onPressed: () {
+                if (bmiResult > 0) {
+                  String message =
+                      'My BMI is ${bmiResult.toStringAsFixed(2)}\n\nDownload the ';
+
+                  message += kIsWeb
+                      ? 'web https://go.iqfareez.com/QzOP'
+                      : 'app https://go.iqfareez.com/bmiDL';
+                  Share.share(message);
+                } else {
+                  // TODO: Add haptic feedback
+                  Fluttertoast.showToast(
+                      msg: 'Calculate your BMI first',
+                      webBgColor: "linear-gradient(to right, #642B73, #C6426E)",
+                      backgroundColor: Colors.red);
+                }
+              },
+              tooltip: 'Share your current BMI',
+            ),
             IconButton(
               icon: const Icon(Icons.info),
               onPressed: () {
@@ -113,7 +109,7 @@ class MyHomePage extends StatelessWidget {
                   LinkLauncher.launch(
                       'https://play.google.com/store/apps/details?id=live.iqfareez.bmicalculator');
                 },
-                icon: const Icon(Icons.picture_as_pdf_sharp),
+                icon: const Icon(Icons.android),
                 label: const Text("Get app from Google Play Store"))
             : OutlinedButton(
                 onPressed: () {
