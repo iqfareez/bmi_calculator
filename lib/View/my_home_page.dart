@@ -37,7 +37,7 @@ class MyHomePage extends StatelessWidget {
                     icon: const Icon(Icons.copy_rounded),
                     onPressed: () {
                       Clipboard.setData(
-                              ClipboardData(text: bmiResult.toString()))
+                              ClipboardData(text: bmiResult.toStringAsFixed(2)))
                           .then((value) =>
                               Fluttertoast.showToast(msg: 'Done copy'));
                     },
@@ -45,9 +45,9 @@ class MyHomePage extends StatelessWidget {
                 : IconButton(
                     icon: const Icon(Icons.share),
                     onPressed: () {
-                      if (bmiResult <= 0) {
+                      if (bmiResult > 0) {
                         Share.share(
-                            'My BMI is $bmiResult\n\nDownload the app https://bit.ly/BMI-dl');
+                            'My BMI is ${bmiResult.toStringAsFixed(2)}\n\nDownload the app https://bit.ly/BMI-dl');
                       } else {
                         Fluttertoast.showToast(
                             msg: 'Calculate your BMI first',
