@@ -3,7 +3,7 @@ description: bmi gemok kurus
 
 publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
-version: 2.0.0-pre.1+7
+version: 2.0.0+8
 
 environment:
   sdk: ">=2.17.0 <3.0.0"
@@ -17,13 +17,13 @@ dependencies:
   share_plus: ^4.0.10
   syncfusion_flutter_gauges: ^20.1.61
   fluttertoast: ^8.0.9
-  flutter_lints: ^2.0.1
   provider: ^6.0.3
   flutter_svg: ^1.1.1+1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_lints: ^2.0.1
 
 # The following section is specific to Flutter.
 flutter:
