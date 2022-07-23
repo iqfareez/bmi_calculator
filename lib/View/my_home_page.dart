@@ -47,7 +47,7 @@ class MyHomePage extends StatelessWidget {
                     onPressed: () {
                       if (bmiResult > 0) {
                         Share.share(
-                            'My BMI is ${bmiResult.toStringAsFixed(2)}\n\nDownload the app https://bit.ly/BMI-dl');
+                            'My BMI is ${bmiResult.toStringAsFixed(2)}\n\nDownload the app https://go.iqfareez.com/bmiDL');
                       } else {
                         Fluttertoast.showToast(
                             msg: 'Calculate your BMI first',
