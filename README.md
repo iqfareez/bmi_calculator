@@ -22,7 +22,7 @@ https://bmi-flutter-2e776.web.app/
 ## Download app
 
 1. [Google Play Store](https://play.google.com/store/apps/details?id=live.iqfareez.bmicalculator)
-2. [APK](https://github.com/fareezMaple/bmi_calculator/releases)
+2. [APK](https://github.com/iqfareez/bmi_calculator/releases)
 
 ## Packages in use
 
@@ -30,12 +30,13 @@ https://bmi-flutter-2e776.web.app/
 | ------------------------- | -------------------------------------------------- |
 | google_fonts              | https://pub.dev/packages/google_fonts              |
 | url_launcher              | https://pub.dev/packages/url_launcher              |
-| share_plus                     | https://pub.dev/packages/share_plus                     |
+| share_plus                | https://pub.dev/packages/share_plus                |
 | syncfusion_flutter_gauges | https://pub.dev/packages/syncfusion_flutter_gauges |
 | fluttertoast              | https://pub.dev/packages/fluttertoast              |
 | flutter_lints             | https://pub.dev/packages/flutter_lints             |
 | provider                  | https://pub.dev/packages/provider                  |
-| flutter_svg                  | https://pub.dev/packages/flutter_svg                  |
+| flutter_svg               | https://pub.dev/packages/flutter_svg               |
+| package_info_plus         | https://pub.dev/packages/package_info_plus         |
 
 ## Legalese
 
