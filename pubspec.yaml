@@ -19,6 +19,7 @@ dependencies:
   fluttertoast: ^8.0.9
   provider: ^6.0.3
   flutter_svg: ^1.1.1+1
+  package_info_plus: ^1.4.3
 
 dev_dependencies:
   flutter_test:

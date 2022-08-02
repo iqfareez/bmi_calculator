@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 import 'package:provider/provider.dart';
 import 'package:share_plus/share_plus.dart';
 
@@ -74,11 +75,13 @@ class MyHomePage extends StatelessWidget {
     );
   }
 
-  void showAppAboutDialog(BuildContext context) {
+  void showAppAboutDialog(BuildContext context) async {
+    PackageInfo packageInfo = await PackageInfo.fromPlatform();
+
     return showAboutDialog(
       context: context,
       applicationName: 'BMI Calculator Lite',
-      applicationVersion: '1.2.11+5',
+      applicationVersion: 'v${packageInfo.version}',
       applicationIcon: SvgPicture.asset(
         'assets/app-logo.svg',
         height: 55,
