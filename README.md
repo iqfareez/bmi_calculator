@@ -9,15 +9,13 @@ This is a very simple app to calculate and get your BMI status.
 
 ## App UI
 
-| GIF                                                                                                                                        | Screenshot                                                                                                                                 |
-| ------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| <img src="https://user-images.githubusercontent.com/60868965/94334737-4f988280-000a-11eb-92e8-161c9655be9b.gif" heigth="512" width="288"/> | <img src="https://user-images.githubusercontent.com/60868965/94332657-8fab3580-0009-11eb-852d-269a9838c1ba.jpg" heigth="512" width="288"/> |
+![1658644443845_samsung-galaxys20ultra-cosmicblack-portrait (Custom)](https://user-images.githubusercontent.com/60868965/180635640-890947cd-cea4-4252-9b3d-feeb03794736.png)
 
 ## Changelog
 
 Wondering what is changed with every new release?? I log them in [changelog history](https://telegra.ph/Changelogs---BMI-Calculator-Lite-07-21).
 
-## Progressive web app
+## Progressive web app (PWA)
 
 https://bmi-flutter-2e776.web.app/
 
@@ -32,11 +30,12 @@ https://bmi-flutter-2e776.web.app/
 | ------------------------- | -------------------------------------------------- |
 | google_fonts              | https://pub.dev/packages/google_fonts              |
 | url_launcher              | https://pub.dev/packages/url_launcher              |
-| share                     | https://pub.dev/packages/share                     |
+| share_plus                     | https://pub.dev/packages/share_plus                     |
 | syncfusion_flutter_gauges | https://pub.dev/packages/syncfusion_flutter_gauges |
 | fluttertoast              | https://pub.dev/packages/fluttertoast              |
 | flutter_lints             | https://pub.dev/packages/flutter_lints             |
 | provider                  | https://pub.dev/packages/provider                  |
+| flutter_svg                  | https://pub.dev/packages/flutter_svg                  |
 
 ## Legalese
 
@@ -45,8 +44,9 @@ https://bmi-flutter-2e776.web.app/
 
 ## Attribution
 
-1. Man On Bicycle BY VIVEK from https://www.glazestock.com/
+1. ~Man On Bicycle BY VIVEK from https://www.glazestock.com/~
 2. App Privacy Policy Generator from https://app-privacy-policy-generator.firebaseapp.com/
+3. Tabler icons https://tablericons.com/
 
 ## Honourable mention
 
