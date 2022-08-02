@@ -38,6 +38,8 @@ https://bmi-flutter-2e776.web.app/
 | flutter_svg               | https://pub.dev/packages/flutter_svg               |
 | package_info_plus         | https://pub.dev/packages/package_info_plus         |
 
+For more info, please go through [pubspec.yaml](./pubspec.yaml) file.
+
 ## Legalese
 
 - [Terms & Conditions](https://telegra.ph/TC---BMI-Calculator-Lite-07-21)

@@ -10,7 +10,7 @@ import '../Utils/link_launcher.dart';
 import '../providers/bmi_provider.dart';
 import 'gauge_result.dart';
 import 'input_data.dart';
-import 'legendsTable.dart';
+import 'legends_data_table.dart';
 
 class MyHomePage extends StatelessWidget {
   const MyHomePage({Key? key}) : super(key: key);
