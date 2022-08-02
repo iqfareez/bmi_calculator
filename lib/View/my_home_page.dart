@@ -84,7 +84,7 @@ class MyHomePage extends StatelessWidget {
         height: 55,
         width: 55,
       ),
-      applicationLegalese: 'Copyright © Fareez Iqmal 2021',
+      applicationLegalese: 'Copyright © Fareez Iqmal 2022',
       children: <Widget>[
         const Padding(
           padding: EdgeInsets.all(16.0),
@@ -120,13 +120,15 @@ class MyHomePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             IconButton(
+                tooltip: 'Follow my Twitter',
                 onPressed: () {
-                  LinkLauncher.launch('url:https://www.twitter.com/iqfareez');
+                  LinkLauncher.launch('https://www.twitter.com/iqfareez');
                 },
                 icon: SvgPicture.asset('assets/twitter-logo.svg')),
             IconButton(
+                tooltip: 'View my website',
                 onPressed: () {
-                  LinkLauncher.launch('url:https://iqfareez.com');
+                  LinkLauncher.launch('https://iqfareez.com');
                 },
                 icon: SvgPicture.asset('assets/chrome-logo.svg'))
           ],
