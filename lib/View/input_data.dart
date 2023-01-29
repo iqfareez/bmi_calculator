@@ -90,7 +90,7 @@ class _InputDataState extends State<InputData> {
                 padding: const EdgeInsets.symmetric(horizontal: 10.0),
                 child: OutlinedButton(
                     style: OutlinedButton.styleFrom(
-                        primary: Colors.red,
+                        foregroundColor: Colors.red,
                         side: const BorderSide(color: Colors.red)),
                     onPressed: () {
                       node.unfocus();
@@ -115,7 +115,7 @@ class _InputDataState extends State<InputData> {
                 padding: const EdgeInsets.symmetric(horizontal: 10.0),
                 child: OutlinedButton(
                     style: OutlinedButton.styleFrom(
-                        primary: Colors.green,
+                        foregroundColor: Colors.green,
                         side: const BorderSide(color: Colors.green)),
                     onPressed: () {
                       node.unfocus();
