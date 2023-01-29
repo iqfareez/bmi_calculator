@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:package_info_plus/package_info_plus.dart';
@@ -39,11 +40,11 @@ class MyHomePage extends StatelessWidget {
                       'My BMI is ${bmiResult.toStringAsFixed(2)}\n\nDownload the ';
 
                   message += kIsWeb
-                      ? 'web https://go.iqfareez.com/QzOP'
+                      ? 'web https://go.iqfareez.com/bmiWeb'
                       : 'app https://go.iqfareez.com/bmiDL';
                   Share.share(message);
                 } else {
-                  // TODO: Add haptic feedback
+                  HapticFeedback.lightImpact();
                   Fluttertoast.showToast(
                       msg: 'Calculate your BMI first',
                       webBgColor: "linear-gradient(to right, #642B73, #C6426E)",
