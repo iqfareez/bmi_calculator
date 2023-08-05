@@ -62,10 +62,10 @@ class MyHomePage extends StatelessWidget {
             )
           ],
         ),
-        body: SingleChildScrollView(
+        body: const SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: const [
+            children: [
               InputData(),
               SizedBox(height: 30),
               LegendsDataTable(),
@@ -88,7 +88,7 @@ class MyHomePage extends StatelessWidget {
         height: 55,
         width: 55,
       ),
-      applicationLegalese: 'Copyright © Fareez Iqmal 2022',
+      applicationLegalese: 'Copyright © Fareez Iqmal 2023',
       children: <Widget>[
         const Padding(
           padding: EdgeInsets.all(16.0),
