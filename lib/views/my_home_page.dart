@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:provider/provider.dart';
 import 'package:share_plus/share_plus.dart';
@@ -91,7 +92,7 @@ class MyHomePage extends StatelessWidget {
         height: 55,
         width: 55,
       ),
-      applicationLegalese: 'Copyright © Fareez Iqmal 2023',
+      applicationLegalese: 'Copyright © Fareez Iqmal 2025',
       children: <Widget>[
         const Padding(
           padding: EdgeInsets.all(16.0),
@@ -100,46 +101,51 @@ class MyHomePage extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
         ),
-        const Text(
-          kIsWeb ? 'Hosted on Firebase' : '☆*: .｡. o(≧▽≦)o .｡.:*☆',
-          textAlign: TextAlign.center,
-        ),
-        OutlinedButton(
+        Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+          IconButton(
+            icon: FaIcon(
+              FontAwesomeIcons.github,
+              size: 24,
+            ),
+            tooltip: 'View source code on GitHub',
             onPressed: () {
               LinkLauncher.launch('https://github.com/iqfareez/bmi_calculator');
             },
-            child: const Text("View code on GitHub")),
-        kIsWeb
-            ? OutlinedButton.icon(
-                onPressed: () {
-                  LinkLauncher.launch(
-                      'https://play.google.com/store/apps/details?id=live.iqfareez.bmicalculator');
-                },
-                icon: const Icon(Icons.android),
-                label: const Text("Get app from Google Play Store"))
-            : OutlinedButton(
-                onPressed: () {
-                  LinkLauncher.launch('https://bmi-flutter-2e776.web.app/');
-                },
-                child: const Text("Open app online")),
-        Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
+          ),
+          IconButton(
+            icon: FaIcon(
+              FontAwesomeIcons.xTwitter,
+              size: 24,
+            ),
+            tooltip: 'Follow me on X (@iqfareez)',
+            onPressed: () {
+              LinkLauncher.launch('https://www.twitter.com/iqfareez');
+            },
+          ),
+          if (!kIsWeb)
             IconButton(
-                tooltip: 'Follow my Twitter',
-                onPressed: () {
-                  LinkLauncher.launch('https://www.twitter.com/iqfareez');
-                },
-                icon: SvgPicture.asset('assets/twitter-logo.svg')),
+              icon: FaIcon(
+                FontAwesomeIcons.chrome,
+                size: 24,
+              ),
+              tooltip: 'Open app as Web App',
+              onPressed: () {
+                LinkLauncher.launch('https://bmi-flutter-2e776.web.app/');
+              },
+            )
+          else
             IconButton(
-                tooltip: 'View my website',
-                onPressed: () {
-                  LinkLauncher.launch('https://iqfareez.com');
-                },
-                icon: SvgPicture.asset('assets/chrome-logo.svg'))
-          ],
-        ),
+              icon: FaIcon(
+                FontAwesomeIcons.android,
+                size: 24,
+              ),
+              tooltip: 'Open Android App',
+              onPressed: () {
+                LinkLauncher.launch(
+                    'https://play.google.com/store/apps/details?id=live.iqfareez.bmicalculator');
+              },
+            ),
+        ]),
       ],
     );
   }
