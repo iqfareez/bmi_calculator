@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../Utils/bmi_enums.dart';
+import '../shared/enums/bmi_enums.dart';
 import '../providers/bmi_provider.dart';
 
 class LegendsDataTable extends StatelessWidget {
-  const LegendsDataTable({Key? key}) : super(key: key);
+  const LegendsDataTable({super.key});
   static double? bmiValue;
 
   String buildRangeString(double? min, double? max) {

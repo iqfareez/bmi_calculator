@@ -5,7 +5,7 @@ import '../providers/bmi_provider.dart';
 import 'bmi_gauge.dart';
 
 class GaugeResult extends StatelessWidget implements PreferredSizeWidget {
-  const GaugeResult({Key? key}) : super(key: key);
+  const GaugeResult({super.key});
 
   @override
   Widget build(BuildContext context) {

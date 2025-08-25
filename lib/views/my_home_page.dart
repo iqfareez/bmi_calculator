@@ -7,14 +7,14 @@ import 'package:package_info_plus/package_info_plus.dart';
 import 'package:provider/provider.dart';
 import 'package:share_plus/share_plus.dart';
 
-import '../Utils/link_launcher.dart';
+import '../shared/utils/link_launcher.dart';
 import '../providers/bmi_provider.dart';
 import 'gauge_result.dart';
 import 'input_data.dart';
 import 'legends_data_table.dart';
 
 class MyHomePage extends StatelessWidget {
-  const MyHomePage({Key? key}) : super(key: key);
+  const MyHomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +42,10 @@ class MyHomePage extends StatelessWidget {
                   message += kIsWeb
                       ? 'web https://go.iqfareez.com/bmiWeb'
                       : 'app https://go.iqfareez.com/bmiDL';
-                  Share.share(message);
+                  SharePlus.instance.share(ShareParams(
+                    text: message,
+                    subject: 'My BMI Result',
+                  ));
                 } else {
                   HapticFeedback.lightImpact();
                   Fluttertoast.showToast(

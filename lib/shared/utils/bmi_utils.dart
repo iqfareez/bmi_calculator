@@ -3,6 +3,4 @@ class BmiUtils {
   static double calculateBmi(double height, double weight) {
     return weight / (height * height);
   }
-
-  /// TODO; BMI value validator
 }

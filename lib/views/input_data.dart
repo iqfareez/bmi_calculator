@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:provider/provider.dart';
 
-import '../Utils/bmi_utils.dart';
+import '../shared/utils/bmi_utils.dart';
 import '../providers/bmi_provider.dart';
 
 class InputData extends StatefulWidget {
-  const InputData({Key? key}) : super(key: key);
+  const InputData({super.key});
 
   @override
   State<InputData> createState() => _InputDataState();

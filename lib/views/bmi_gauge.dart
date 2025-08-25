@@ -3,8 +3,10 @@ import 'package:syncfusion_flutter_gauges/gauges.dart';
 
 /// Draw the BMI gauge using syncfuison package
 class BmiGauge extends StatefulWidget {
+  const BmiGauge({super.key, required this.bmiValue});
+
   final double bmiValue;
-  const BmiGauge({Key? key, required this.bmiValue}) : super(key: key);
+
   @override
   State<BmiGauge> createState() => _BmiGaugeState();
 }
