@@ -93,7 +93,7 @@ class MyHomePage extends StatelessWidget {
         height: 55,
         width: 55,
       ),
-      applicationLegalese: 'Copyright © Fareez Iqmal 2025',
+      applicationLegalese: 'Copyright © Fareez Iqmal 2026',
       children: <Widget>[
         const Padding(
           padding: EdgeInsets.all(16.0),
