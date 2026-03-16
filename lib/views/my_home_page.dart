@@ -82,6 +82,7 @@ class MyHomePage extends StatelessWidget {
 
   void showAppAboutDialog(BuildContext context) async {
     PackageInfo packageInfo = await PackageInfo.fromPlatform();
+    if (!context.mounted) return;
 
     return showAboutDialog(
       context: context,

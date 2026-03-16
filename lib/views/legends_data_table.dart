@@ -23,7 +23,7 @@ class LegendsDataTable extends StatelessWidget {
     return Consumer<BmiProvider>(
       builder: (context, value, child) => DataTable(
         headingRowHeight: 36,
-        dataRowHeight: 25,
+        dataRowMinHeight: 25,
         columns: const [
           DataColumn(
               label: Align(
